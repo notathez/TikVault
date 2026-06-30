@@ -1,8 +1,309 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Space+Grotesk:wght@300..700&display=swap');
+
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+
+	font-family: Manrope, sans-serif;
 }
 
 body {
+	padding: 20px 40px;
+	min-height: 100svh;
+	min-width: 100svw;
+	background-color: #f7f7f7;
+}
+
+.header {
+	margin-bottom: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.main-logo {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.main-logo h1 {
+	font-size: 28px;
+}
+
+.logo-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 25%;
+}
+
+.logo-wrapper img {
+	height: 40px;
+	width: 40px;
+	border-radius: 25%;
+}
+
+.load-data--btn {
+	padding: 10px 20px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	color: #fff;
+	background-color: #f12a67;
+	border: none;
+	outline: none;
+	border-radius: 6px;
+	cursor: pointer;
+	transition: 0.2s background-color ease;
+}
+
+.load-data--btn span {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.load-data--btn:hover {
+	background-color: #cd2054;
+}
+
+main {
+	display: flex;
+	gap: 15px;
+}
+
+.viewer {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.player {
+	height: calc(100svh - 300px);
+	min-height: 100%;
+	border-radius: 10px;
+}
+
+.video-info {
+	padding: 15px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	border: 1px solid #eff0f4;
+	border-radius: 10px;
+	background-color: #fff;
+}
+
+.video-info h3 {
+	font-size: 16px;
+	color: #787c99;
+}
+
+.copy-link {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.copy-link a {
+	font-size: 14px;
+	text-decoration: none;
+	color: #787c99;
+}
+
+.copy-link svg {
+	cursor: pointer;
+}
+
+aside {
+	min-height: 100%;
+	max-width: 550px;
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.filters {
+	padding: 15px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	background-color: #fff;
+	border: 1px solid #eff0f4;
+	border-radius: 10px;
+}
+
+.searchWrapper {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 10px 15px;
+	position: relative;
+	border: 1px solid #eff0f4;
+	border-radius: 6px;
+}
+
+.searchWrapper input {
+	border: none;
+	outline: none;
+	font-family: Manrope, sans-serif;
+	font-size: 16px;
+}
+
+.searchWrapper span {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.history-navigation {
+	height: 100%;
+	padding: 15px;
+	background-color: #fff;
+	border: 1px solid #eff0f4;
+	border-radius: 10px;
+}
+
+.history-navigation__header {
+	display: flex;
+	align-items: center;
+	margin-bottom: 15px;
+}
+
+.history-navigation__header span {
+	font-size: 14px;
+	color: #787c99;
+}
+
+.history-list {
+	list-style: none;
+}
+
+.history-list__item {
+	position: relative;
+	padding: 15px;
+	display: flex;
+	align-items: center;
+	font-size: 16px;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+.history-list__item::after {
+	position: absolute;
+  content: '';
+  height: 1.5px;
+  top: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+  width: calc(100% - 14px);
+  background-color: #eff0f4;
+}
+
+.history-list__item.active {
+	background-color: #fceff3;
+	border-left: 2px solid #dc2626;
+}
+
+.tiktok-logo_wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	margin-right: 15px;
+}
+
+.tiktok-logo_wrapper img {
+	height: 30px;
+	width: 30px;
+	border-radius: 50%;
+}
+
+
+.history-list__item time {
+	color: #787c99;
+}
+
+.history-list__item a svg {
+	size: 16px;
+}
+
+/* FLATPICKER CALENDAR */
+
+.flatpickr-calendar {
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.12);
+}
+
+.flatpickr-months {
+  background: white;
+}
+
+.flatpickr-current-month {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.flatpickr-day {
+  border-radius: 8px;
+}
+
+.flatpickr-day:hover {
+  background: #f2f4f8;
+}
+
+.flatpickr-day.selected {
+  background: #ff4d7a;
+  border-color: #ff4d7a;
+}
+
+.flatpickr-day.today {
+  border-color: #ff4d7a;
+}
+
+.flatpickr-prev-month svg,
+.flatpickr-next-month svg {
+  fill: #555;
+}
+
+.flatpickr-prev-month:hover svg,
+.flatpickr-next-month:hover svg {
+  fill: #ff4d7a;
+}
+
+#date-from,
+#date-to {
+	max-width: 100px;
+  /* height: 42px; */
+	border: none;
+  font-size: 16px;
+	outline: none;
+}
+
+.date-filter {
+	display: flex;
+	gap: 10px;
+}
+
+.date-filter > * {
+	flex: 1	;
+}
+
+.date-select_wrapper {
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border: 1px solid #eff0f4;
+	border-radius: 6px;
+}
+
+#sort {
+	padding: 0 10px;
+	border: 1px solid #eff0f4;
+	border-radius: 6px;
 }
