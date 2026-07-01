@@ -307,7 +307,7 @@ aside {
 
 #date-from,
 #date-to {
-	max-width: 100px;
+	width: 100%;
 	border: none;
   font-size: 16px;
 	outline: none;
@@ -315,20 +315,26 @@ aside {
 
 .date-filter {
 	display: flex;
+	align-items: center;
 	gap: 10px;
 }
 
-.date-filter > * {
+.date-filter > div {
 	flex: 1	;
 }
 
 .date-select_wrapper {
+	/* max-width: 100px; */
 	padding: 10px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	border: 1px solid #eff0f4;
 	border-radius: 6px;
+}
+
+.date-select_wrapper input {
+	width: 100%;
 }
 
 .paginator {
@@ -389,7 +395,7 @@ aside {
 
 .pagination-area {
 	margin-top: 20px;
-	display: flex;
+	display: none;
 	align-items: center;
 	justify-content: space-between;
 }
@@ -464,25 +470,24 @@ aside {
 
 .sort {
   position: relative;
-  width: 180px;
 }
 
 .sort__current {
   width: 100%;
-  height: 42px;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  padding: 0 14px;
+  padding: 10px;
 
   background: #fff;
   border: 1px solid #eff0f4;
   border-radius: 6px;
 
-  color: #000;
+	color: #757575;
   cursor: pointer;
+	font-size: 16px;
 }
 
 .sort__current svg {
@@ -516,7 +521,31 @@ aside {
 }
 
 .sort__menu li {
-  padding: 10px 14px;
-  border-radius: 8px;
+  padding: 10px;
+  border-radius: 6px;
   cursor: pointer;
+	color: #757575;
+}
+
+.empty-list {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.empty-list img {
+	height: 350px;
+	width: auto;
+}
+
+.empty-list h2 {
+	margin-top: -50px;
+	font-size: 28px;
+}
+
+.empty-list span {
+	margin-top: 15px;
+	max-width: 250px;
+	font-size: 16px;
+	text-align: center;
 }

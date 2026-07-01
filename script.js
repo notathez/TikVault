@@ -2,6 +2,7 @@ const uploadBtn = document.querySelector("#uploadBtn");
 const fileInput = document.querySelector("#fileInput");
 const list = document.querySelector(".history-list");
 const player = document.querySelector(".player");
+const paginationArea = document.querySelector(".pagination-area");
 const paginator = document.querySelector(".paginator");
 const pageSize = document.querySelector(".page-size");
 const current = pageSize.querySelector(".page-size__current");
@@ -141,6 +142,8 @@ async function loadVideos(file) {
 }
 
 function renderVideos(listData = filteredVideos) {
+
+	paginationArea.style.display = listData.length ? "flex" : "none";
 	
 	list.innerHTML = "";
 
