@@ -8,10 +8,17 @@ const current = pageSize.querySelector(".page-size__current");
 const currentText = current.querySelector("span");
 const menu = pageSize.querySelector(".page-size__menu");
 
+const sort = document.querySelector(".sort");
+const sortCurrent = sort.querySelector(".sort__current");
+const sortText = sortCurrent.querySelector("span");
+const sortMenu = sort.querySelector(".sort__menu");
+
 let videos = [];
 
 let ITEMS_PER_PAGE = 10;
 let currentPage = 1;
+
+let sortType = "newest";
 
 uploadBtn.addEventListener("click", () => {
     fileInput.click();
@@ -245,5 +252,37 @@ document.addEventListener("click", (e) => {
   if (!pageSize.contains(e.target)) {
     pageSize.classList.remove("open");
   }
+	
+	if (!sort.contains(e.target)) {
+		sort.classList.remove("open");
+  }
 
+});
+
+
+sortCurrent.addEventListener("click", () => {
+  sort.classList.toggle("open");
+});
+
+sortMenu.addEventListener("click", (e) => {
+
+  const item = e.target.closest("li");
+
+  if (!item) return;
+
+  sortType = item.dataset.value;
+
+	sortText.textContent = item.textContent;
+
+	currentPage = 1;
+
+  if (sortType === "newest") {
+    videos.sort((a, b) => new Date(b.date) - new Date(a.date));
+  } else {
+    videos.sort((a, b) => new Date(a.date) - new Date(b.date));
+  }
+
+  renderVideos();
+
+  sort.classList.remove("open");
 });

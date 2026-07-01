@@ -328,12 +328,6 @@ aside {
 	border-radius: 6px;
 }
 
-#sort {
-	padding: 0 10px;
-	border: 1px solid #eff0f4;
-	border-radius: 6px;
-}
-
 .paginator {
 	margin-left: 40px;
   display: flex;
@@ -463,4 +457,63 @@ aside {
 
 .page-size__menu li:hover {
   background: #cd2054;
+}
+
+.sort {
+  position: relative;
+  width: 180px;
+}
+
+.sort__current {
+  width: 100%;
+  height: 42px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 14px;
+
+  background: #fff;
+  border: 1px solid #eff0f4;
+  border-radius: 6px;
+
+  color: #000;
+  cursor: pointer;
+}
+
+.sort__current svg {
+  transition: 0.2s;
+}
+
+.sort.open .sort__current svg {
+  transform: rotate(180deg);
+}
+
+.sort__menu {
+  display: none;
+
+  position: absolute;
+  top: calc(100% + 8px);
+
+  width: 100%;
+
+  padding: 6px;
+  margin: 0;
+
+  list-style: none;
+
+  background: #fff;
+  border: 1px solid #eff0f4;
+  border-radius: 6px;
+}
+
+.sort.open .sort__menu {
+  display: block;
+}
+
+.sort__menu li {
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
 }
