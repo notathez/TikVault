@@ -15,13 +15,13 @@
 			</span>
 			<h1>TikVault</h1>
 		</a>
-		<button class="load-data--btn">
+		<button id="uploadBtn" class="load-data--btn">
 			<span>
 				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cloud-upload-icon lucide-cloud-upload"><path d="M12 13v8"/><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="m8 17 4-4 4 4"/></svg>
 			</span>
 			Upload data
 		</button>
-			
+		<input type="file" id="fileInput" accept=".json" hidden>
 	</header>
 	<main>
 		<section class="viewer">
@@ -71,7 +71,7 @@
 					<span>Date</span>
 				</div>
 				<ul class="history-list">
-					<li class="history-list__item active">
+					<!-- <li class="history-list__item active">
 						<div class="tiktok-logo_wrapper">						
 							<img src="/assets/tiktok-logo.png" alt="tiktok logo">
 						</div>
@@ -90,7 +90,7 @@
 						<a href="">
 							<img src="assets/square-arrow-out-up-right.svg" alt="External tiktok">
 						</a>
-					</li>
+					</li> -->
 				</ul>
 				<nav class="paginator"></nav>
 			</section>

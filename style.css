@@ -120,7 +120,7 @@ main {
 
 aside {
 	min-height: 100%;
-	max-width: 550px;
+	/* max-width: 550px; */
 	display: flex;
 	flex-direction: column;
 	gap: 15px;
@@ -179,7 +179,9 @@ aside {
 }
 
 .history-list {
+	max-height: 400px;
 	list-style: none;
+	overflow-y: scroll;
 }
 
 .history-list__item {
@@ -189,7 +191,7 @@ aside {
 	align-items: center;
 	font-size: 16px;
 	border-radius: 10px;
-	overflow: hidden;
+	/* overflow: hidden; */
 }
 
 .history-list__item::after {
