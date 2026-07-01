@@ -17,6 +17,8 @@ const sortMenu = sort.querySelector(".sort__menu");
 const videoLink = document.querySelector(".copy-link a");
 const copyLinkBtn = document.querySelector(".copy-link button");
 
+const searchInput = document.querySelector("#search-input");
+
 const dateFrom = flatpickr("#date-from", {
     dateFormat: "Y-m-d",
     onChange() {
@@ -68,7 +70,14 @@ fileInput.addEventListener("change", async (e) => {
     renderVideos();
 });
 
+searchInput.addEventListener("keydown", (e) => {
+	if (e.key !== "Enter") return;
 
+	player.src = getPlayerLink(searchInput.value)
+
+	videoLink.href = searchInput.value;
+	videoLink.innerHTML = searchInput.value;
+});
 
 list.addEventListener("click", (e) => {
 
