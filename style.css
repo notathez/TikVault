@@ -114,7 +114,10 @@ main {
 	color: #787c99;
 }
 
-.copy-link svg {
+.copy-link button {
+	padding: 0;
+	border: none;
+	background: transparent;
 	cursor: pointer;
 }
 
@@ -188,7 +191,7 @@ aside {
 }
 
 .history-list {
-	max-height: 434px;
+	max-height: 429px;
 	list-style: none;
 	overflow-y: scroll;
 }
@@ -245,7 +248,7 @@ aside {
 
 .history-list__item time {
 	width: 130px;
-	margin-left: 20px;
+	margin-left: 15px;
 	font-size: 14px;
 	color: #787c99;
 }

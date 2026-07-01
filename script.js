@@ -13,12 +13,38 @@ const sortCurrent = sort.querySelector(".sort__current");
 const sortText = sortCurrent.querySelector("span");
 const sortMenu = sort.querySelector(".sort__menu");
 
+const videoLink = document.querySelector(".copy-link a");
+const copyLinkBtn = document.querySelector(".copy-link button");
+
+const dateFrom = flatpickr("#date-from", {
+    dateFormat: "Y-m-d",
+    onChange() {
+        currentPage = 1;
+        applyFilters();
+        renderVideos();
+    }
+});
+
+const dateTo = flatpickr("#date-to", {
+    dateFormat: "Y-m-d",
+    onChange() {
+        currentPage = 1;
+        applyFilters();
+        renderVideos();
+    }
+});
+
 let videos = [];
+let filteredVideos = [];
+let sortType = "newest";
+
 
 let ITEMS_PER_PAGE = 10;
 let currentPage = 1;
 
-let sortType = "newest";
+copyLinkBtn.addEventListener('click', async () => {
+	await navigator.clipboard.writeText(videoLink.href)
+})
 
 uploadBtn.addEventListener("click", () => {
     fileInput.click();
@@ -33,6 +59,9 @@ fileInput.addEventListener("change", async (e) => {
     const data = await loadVideos(file);
 
     videos = data["Likes and Favorites"]["Like List"]["ItemFavoriteList"];
+		filteredVideos = [...videos];
+
+		applyFilters();
 		currentPage = 1;
 
     renderVideos();
@@ -46,9 +75,11 @@ list.addEventListener("click", (e) => {
 
     if (!item) return;
 
-		const video = videos[item.dataset.index]
+		const video = filteredVideos[item.dataset.index]
 
 		player.src = getPlayerLink(video.link)
+		videoLink.href = video.link;
+		videoLink.innerHTML = video.link;
 
 		document
       .querySelectorAll(".history-list__item")
@@ -63,7 +94,7 @@ list.addEventListener("click", (e) => {
 paginator.addEventListener("click", (e) => {
   if (e.target.classList.contains("dots")) {
 
-  const totalPages = Math.ceil(videos.length / ITEMS_PER_PAGE);
+  const totalPages = Math.ceil(filteredVideos.length / ITEMS_PER_PAGE);
 
   e.target.outerHTML = `
     <input
@@ -104,27 +135,19 @@ paginator.addEventListener("click", (e) => {
 
 });
 
-const dateFrom = flatpickr("#date-from", {
-    dateFormat: "Y-m-d",
-});
-
-const dateTo = flatpickr("#date-to", {
-    dateFormat: "Y-m-d",
-});
-
 async function loadVideos(file) {
   const text = await file.text();
   return JSON.parse(text);
 }
 
-function renderVideos() {
+function renderVideos(listData = filteredVideos) {
 	
 	list.innerHTML = "";
 
 	const start = (currentPage - 1) * ITEMS_PER_PAGE;
 	const end = start + ITEMS_PER_PAGE;
 
-	const page = videos.slice(start, end);
+	const page = listData.slice(start, end);
 
 	page.forEach((item, index) => {
 
@@ -167,7 +190,7 @@ function renderPagination() {
 
 	paginator.innerHTML = "";
 
-	const totalPages = Math.ceil(videos.length / ITEMS_PER_PAGE);
+	const totalPages = Math.ceil(filteredVideos.length / ITEMS_PER_PAGE);
 
 	addButton("<", currentPage - 1, currentPage === 1);
 
@@ -252,7 +275,7 @@ document.addEventListener("click", (e) => {
   if (!pageSize.contains(e.target)) {
     pageSize.classList.remove("open");
   }
-	
+
 	if (!sort.contains(e.target)) {
 		sort.classList.remove("open");
   }
@@ -276,13 +299,43 @@ sortMenu.addEventListener("click", (e) => {
 
 	currentPage = 1;
 
-  if (sortType === "newest") {
-    videos.sort((a, b) => new Date(b.date) - new Date(a.date));
-  } else {
-    videos.sort((a, b) => new Date(a.date) - new Date(b.date));
-  }
+  // if (sortType === "newest") {
+  //   videos.sort((a, b) => new Date(b.date) - new Date(a.date));
+  // } else {
+  //   videos.sort((a, b) => new Date(a.date) - new Date(b.date));
+  // }
+
+	applyFilters();
 
   renderVideos();
 
   sort.classList.remove("open");
 });
+
+function applyFilters() {
+  filteredVideos = [...videos];
+
+  const from = dateFrom.selectedDates[0];
+  const to = dateTo.selectedDates[0];
+
+  if (from) {
+    filteredVideos = filteredVideos.filter(
+      video => new Date(video.date) >= from
+    );
+  }
+
+  if (to) {
+    const end = new Date(to);
+    end.setHours(23, 59, 59, 999);
+
+    filteredVideos = filteredVideos.filter(
+      video => new Date(video.date) <= end
+    );
+  }
+
+  if (sortType === "newest") {
+      filteredVideos.sort((a, b) => new Date(b.date) - new Date(a.date));
+  } else {
+    filteredVideos.sort((a, b) => new Date(a.date) - new Date(b.date));
+  }
+}
