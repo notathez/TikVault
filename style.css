@@ -192,7 +192,7 @@ aside {
 }
 
 .history-list {
-	max-height: 429px;
+	height: 429px;
 	list-style: none;
 	overflow-y: scroll;
 }
@@ -339,7 +339,7 @@ aside {
 }
 
 .paginator {
-	margin-left: 40px;
+	margin-left: 15px;
   display: flex;
   justify-content: center;
   gap: 8px;
@@ -404,7 +404,7 @@ aside {
 .page-size {
   position: relative;
   width: 140px;
-	margin-right: 40px;
+	margin-right: 15px;
 }
 
 .page-size__current {

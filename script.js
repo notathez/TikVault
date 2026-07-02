@@ -199,32 +199,44 @@ function getPlayerLink(link) {
 }
 
 function renderPagination() {
+  paginator.innerHTML = "";
 
-	paginator.innerHTML = "";
+  const totalPages = Math.ceil(filteredVideos.length / ITEMS_PER_PAGE);
 
-	const totalPages = Math.ceil(filteredVideos.length / ITEMS_PER_PAGE);
+  addButton("<<", 1, currentPage === 1);
+  addButton("<", currentPage - 1, currentPage === 1);
 
-	addButton("<", currentPage - 1, currentPage === 1);
-
-	addPage(currentPage);
-
-	if (currentPage + 1 <= totalPages) {
-		addPage(currentPage + 1)
-	}
-
-	if (currentPage + 2 <= totalPages) {
-		addPage(currentPage + 2)
-	}
-
-	if (currentPage + 3 < totalPages) {
+  if (totalPages - currentPage <= 3) {
 		addDots();
-	}
 
-	if (currentPage < totalPages) {
-		addPage(totalPages)
-	}
+    const start = Math.max(1, totalPages - 3);
 
-	addButton(">", currentPage + 1, currentPage === totalPages);
+    for (let i = start; i <= totalPages; i++) {
+      addPage(i);
+    }
+
+  } else {
+
+    addPage(currentPage);
+
+    if (currentPage + 1 <= totalPages) {
+      addPage(currentPage + 1);
+    }
+
+    if (currentPage + 2 <= totalPages) {
+      addPage(currentPage + 2);
+    }
+
+    if (currentPage + 3 < totalPages) {
+      addDots();
+    }
+
+    if (currentPage < totalPages) {
+      addPage(totalPages);
+    }
+  }
+
+  addButton(">", currentPage + 1, currentPage === totalPages);
 }
 
 function addPage(page) {
@@ -310,12 +322,6 @@ sortMenu.addEventListener("click", (e) => {
 	sortText.textContent = item.textContent;
 
 	currentPage = 1;
-
-  // if (sortType === "newest") {
-  //   videos.sort((a, b) => new Date(b.date) - new Date(a.date));
-  // } else {
-  //   videos.sort((a, b) => new Date(a.date) - new Date(b.date));
-  // }
 
 	applyFilters();
 
