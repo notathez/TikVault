@@ -33,7 +33,7 @@ export function renderVideos() {
 		`
 		<li class="history-list__item" data-index=${globalIndex}>
 			<div class="tiktok-logo_wrapper">						
-				<img src="../assets/tiktok-logo.png" alt="tiktok logo">
+				<img src="assets/tiktok-logo.png" alt="tiktok logo">
 			</div>
 			<span>${item.link}</span>
 			<time>${formatted}</time>
