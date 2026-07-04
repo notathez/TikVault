@@ -11,7 +11,12 @@ export function renderPagination() {
 	addButton("<<", 1, state.currentPage === 1);
 	addButton("<", state.currentPage - 1, state.currentPage === 1);
 
-	if (totalPages - state.currentPage <= 3) {
+	if (totalPages <= 5) {
+		for (let i = 1; i <= totalPages; i++) {
+			addPage(i);
+		}
+
+	} else if (totalPages - state.currentPage <= 3) {
 		addDots();
 
 		const start = Math.max(1, totalPages - 3);
