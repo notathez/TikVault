@@ -23,86 +23,109 @@
 		</button>
 		<input type="file" id="fileInput" accept=".json" hidden>
 	</header>
-	<main>
-		<section class="viewer">
-			<iframe
-				src="https://www.tiktok.com/player/v1/7513591048724221207"
-				frameborder="0"
-				allow="autoplay; fullscreen"
-				allowfullscreen
-				class="player">
-			</iframe>
-			<section class="video-info">
-				<h3>Link</h3>
-					<div class="copy-link">				
-						<a href="https://www.tiktok.com/player/v1/7513591048724221207" target="_blank">https://www.tiktok.com/player/v1/7513591048724221207</a>
-						<button>
-							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#787c99" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy-icon lucide-copy"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>							
-						</button>
-					</div>
-			</section>
-		</section>
 
-		<aside>
-			<section class="filters">
-				<div class="searchWrapper">
+	<main class="main">
+		<section class="hero">
+			<div class="hero-left">			
+				<h1>Browse your TikTok <span>Like History </span>with ease</h1>
+				<span>Upload your exported TikTok data and browse thousands of liked and saved videos with search, filters, sorting and build-in player.</span>
+				<div class="upload-field">
 					<span>
-						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search-icon lucide-search"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+						<img src="" alt="upload icon">
 					</span>
-					<input id="search-input" type="text" placeholder="Search by link">
+					<h3>Upload your <span>TikTok data</span></h3>
+					<span>Drag & drop your file here or click to choose a file</span>
+					<button>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cloud-upload-icon lucide-cloud-upload"><path d="M12 13v8"/><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="m8 17 4-4 4 4"/></svg>
+						</span>
+						Choose file
+					</button>				
+					<span>
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock-icon lucide-lock"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+						Your data never leaves your device
+					</span>
 				</div>
-				<div class="date-filter">
-					<div class="date-select_wrapper">
-						<input type="text" id="date-from" placeholder="Date from">
-						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#787c99" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar-icon lucide-calendar"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
-					</div>				
-					<div class="date-select_wrapper">
-						<input type="text" id="date-to" placeholder="Date to">
-						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#787c99" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar-icon lucide-calendar"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
-					</div>
-					<div class="sort">
-						<button class="sort__current" type="button">
-							<span>Newest</span>
-							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
-						</button>
-						<ul class="sort__menu">
-							<li data-value="newest">Newest</li>
-							<li data-value="oldest">Oldest</li>
-						</ul>
-					</div>
+			</div>
+			<div class="hero-right">
+				<div class="hero-img">
+					<img src="assets/hero.png" alt="vault preview">
 				</div>
-			</section>
-
-			<section class="history-navigation">
-				<div class="history-navigation__header">
-					<span>Search history</span>
-					<span>Date</span>
-				</div>
-				<ul class="history-list">
-					<li class="empty-list">
-						<img src="assets/empty.png" alt="empty list">
-						<h2>No videos found</h2>
-						<span>Upload your TikTok data file to see your videos here.</span>
-					</li>
-				</ul>
-				<div class="pagination-area">
-					<nav class="paginator"></nav>
-					<div class="page-size">
-						<button class="page-size__current" type="button">
-							<span>10 per page</span>
-							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
-						</button>
-						<ul class="page-size__menu">
-							<li data-value="10">10 per page</li>
-							<li data-value="25">25 per page</li>
-							<li data-value="40">40 per page</li>
-							<li data-value="100">100 per page</li>
-						</ul>
-					</div>
-				</div>
-			</section>
-		</aside>
+			</div>
+		</section>
+		<section class="features">
+			<h2>Powerfull features</h2>
+			<ul class="features-list">
+				<li class="features-list__item">
+					<span>
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search-icon lucide-search"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>						
+					</span>
+					<h3>Smart search</h3>
+					<span>Find any video instantly by link, filters and sorting options.</span>
+				</li>
+				<li class="features-list__item">
+					<span>
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar-days-icon lucide-calendar-days"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg>
+					</span>
+					<h3>Date filtering</h3>
+					<span>Filter videos by date range and sort by newest or oldest.</span>
+				</li>
+				<li class="features-list__item">
+					<span>
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play-icon lucide-play"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"/></svg>
+					</span>
+					<h3>Built-in player</h3>
+					<span>Watch TikTok videos directly in app with full controls.</span>
+				</li>
+				<li class="features-list__item">
+					<span>
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-icon lucide-shield"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>	
+					</span>
+					<h3>Privacy first</h3>
+					<span>All processing happens in your browser. Your data never leaves your device.</span>
+				</li>
+			</ul>
+		</section>
+		<section class="user-guide">
+			<h2>How it works</h2>
+			<ul class="user-guide-list">
+				<li class="user-guide-list__item">
+					<span class="item-step">1</span>
+					<span class="item-icon">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings-icon lucide-settings"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"/><circle cx="12" cy="12" r="3"/></svg>
+					</span>
+					<h4 class="item-header">Export your data</h4>
+					<span class="item-description">Go to TikTok settings and request your data. Download the archive.</span>
+				</li>
+				<li class="user-guide-list__item">
+					<span class="item-step">2</span>
+					<span class="item-icon">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder-open-icon lucide-folder-open"><path d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2"/></svg>
+					</span>
+					<h4 class="item-header">Find like List.json</h4>
+					<span class="item-description">Open the archive and locate the "Like list.json" file. This is the file you need.</span>
+				</li>
+				<li class="user-guide-list__item">
+					<span class="item-step">3</span>
+					<span class="item-icon">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cloud-upload-icon lucide-cloud-upload"><path d="M12 13v8"/><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="m8 17 4-4 4 4"/></svg>
+					</span>
+					<h4 class="item-header">Upload the file</h4>
+					<span class="item-description">Upload the the JSON file to TikVault. All data is loaded instantly in your browser.</span>
+				</li>
+				<li class="user-guide-list__item">
+					<span class="item-step">4</span>
+					<span class="item-icon">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye-icon lucide-eye"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
+					</span>
+					<h4 class="item-header">Browse & Enjoy</h4>
+					<span class="item-description">Search, filter, watch and manager your liked videos with ease.</span>
+				</li>
+			</ul>
+		</section>
+		<a href="vault.html">vault</a>
 	</main>
+
 		<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script type="module" src="js/main.js"></script>
 </body>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TikVault</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css">
+</head>
+<body>
+	<header class="header">
+		<a class="main-logo">
+			<span class="logo-wrapper">
+				<img src="assets/tiktok-logo.png" alt="logo">
+			</span>
+			<h1>TikVault</h1>
+		</a>
+		<button id="uploadBtn" class="load-data--btn">
+			<span>
+				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cloud-upload-icon lucide-cloud-upload"><path d="M12 13v8"/><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="m8 17 4-4 4 4"/></svg>
+			</span>
+			Upload data
+		</button>
+		<input type="file" id="fileInput" accept=".json" hidden>
+	</header>
+	<main>
+		<section class="viewer">
+			<iframe
+				src="https://www.tiktok.com/player/v1/7513591048724221207"
+				frameborder="0"
+				allow="autoplay; fullscreen"
+				allowfullscreen
+				class="player"
+				>
+			</iframe>
+			<section class="video-info">
+				<h3>Link</h3>
+					<div class="copy-link">				
+						<a href="https://www.tiktok.com/player/v1/7513591048724221207" target="_blank">https://www.tiktok.com/player/v1/7513591048724221207</a>
+						<button>
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#787c99" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy-icon lucide-copy"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>							
+						</button>
+					</div>
+			</section>
+		</section>
+
+		<aside>
+			<section class="filters">
+				<div class="searchWrapper">
+					<span>
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search-icon lucide-search"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+					</span>
+					<input id="search-input" type="text" placeholder="Search by link">
+				</div>
+				<div class="date-filter">
+					<div class="date-select_wrapper">
+						<input type="text" id="date-from" placeholder="Date from">
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#787c99" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar-icon lucide-calendar"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+					</div>				
+					<div class="date-select_wrapper">
+						<input type="text" id="date-to" placeholder="Date to">
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#787c99" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar-icon lucide-calendar"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+					</div>
+					<div class="sort">
+						<button class="sort__current" type="button">
+							<span>Newest</span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
+						</button>
+						<ul class="sort__menu">
+							<li data-value="newest">Newest</li>
+							<li data-value="oldest">Oldest</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+			<section class="history-navigation">
+				<div class="history-navigation__header">
+					<span>Search history</span>
+					<span>Date</span>
+				</div>
+				<ul class="history-list">
+					<li class="empty-list">
+						<img src="assets/empty.png" alt="empty list">
+						<h2>No videos found</h2>
+						<span>Upload your TikTok data file to see your videos here.</span>
+					</li>
+				</ul>
+				<div class="pagination-area">
+					<nav class="paginator"></nav>
+					<div class="page-size">
+						<button class="page-size__current" type="button">
+							<span>10 per page</span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
+						</button>
+						<ul class="page-size__menu">
+							<li data-value="10">10 per page</li>
+							<li data-value="25">25 per page</li>
+							<li data-value="40">40 per page</li>
+							<li data-value="100">100 per page</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</aside>
+	</main>
+		<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
