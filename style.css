@@ -590,6 +590,8 @@ aside {
 	gap: 50px;
 }
 
+/* HERO SECTION */
+
 .hero {
 	display: flex;
 	gap: 40px;
@@ -674,9 +676,6 @@ aside {
 	justify-content: center;
 }
 
-.hero-right {
-}
-
 .hero-img {
 	width: 100%;
 	border: var(--border);
@@ -686,6 +685,45 @@ aside {
 .hero-img img {
 	width: 100%;
 }
+
+/* BENEFITS */
+
+.benefits-list {
+	max-width: 1400px;
+	padding-bottom: 50px;
+	display: flex;
+	justify-content: space-around;
+	border-bottom: 1.5px solid #e2e2e2;
+}
+
+.benefits-list__item {
+	flex: 1;
+	max-width: 220px;
+	display: flex;
+	gap: 20px;
+}
+
+.benefits-list__item svg {
+	height: 36px;
+	width: 36px;
+}
+
+.item-info {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.item-info h4 {
+	font-size: 16px;
+}
+
+.item-info span {
+	font-size: 14px;
+	color: var(--text-secondary);
+}
+
+/* FEATURES */
 
 .features {
 	max-width: 1400px;
@@ -732,6 +770,8 @@ aside {
 	font-size: 20px;
 	margin-bottom: 15px;
 }
+
+/* USER GUIDE */
 
 .user-guide {
 	max-width: 1400px;
