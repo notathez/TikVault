@@ -82,7 +82,10 @@ function addDots() {
 	)
 }
 
-paginator.addEventListener("click", (e) => {
+export function initPagination() {
+	if (!paginator) return;
+
+	paginator.addEventListener("click", (e) => {
 	if (e.target.classList.contains("dots")) {
 
 	const totalPages = Math.ceil(state.filteredVideos.length / state.itemsPerPage);
@@ -125,3 +128,4 @@ paginator.addEventListener("click", (e) => {
 	renderVideos();
 
 });
+}

@@ -627,25 +627,17 @@ aside {
 	border: 1px solid #fce0e9;
 	border-radius: var(--brs-md);
 	background-color: #fef7fa;
+	cursor: pointer;
+}
+
+.upload-field.dragover {
+	border-color: var(--accent-color);
+	background-color: var(--accent-light);
 }
 
 .upload-header span {
 	color: var(--accent-color);
 }
-
-/* .upload-icon {
-	padding: 20px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background-color: #fce0e9;
-	border-radius: var(--brs-xl);
-} */
-
-/* .upload-icon svg {
-	fill: var(--accent-color);
-	color: var(--accent-color);
-} */
 
 .upload-icon {
 	height: 80px;
@@ -678,6 +670,12 @@ aside {
 	border-radius: var(--brs-md);
 	font-size: 18px;
 	color: var(--white);
+	cursor: pointer;
+	transition: 0.2s background-color ease;
+}
+
+.upload-button:hover {
+	background-color: var(--accent-dark);
 }
 
 .upload-button span {
