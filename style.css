@@ -30,6 +30,10 @@
 	font-family: Manrope, sans-serif;
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 body {
 	padding: 20px 40px;
 	min-height: 100svh;
@@ -40,6 +44,7 @@ body {
 
 main {
 	display: flex;
+	align-items: center;
 	gap: 15px;
 }
 
@@ -64,11 +69,16 @@ aside {
 	display: flex;
 	align-items: center;
 	gap: 10px;
+	text-decoration: none;
 }
 
 .main-logo h1 {
 	font-size: 28px;
 	color: var(--text-color);
+}
+
+.main-logo h1 span {
+	color: var(--accent-color);
 }
 
 .logo-wrapper {
@@ -82,6 +92,34 @@ aside {
 	height: 40px;
 	width: 40px;
 	border-radius: var(--brs-lg);
+}
+
+.nav-list {
+	display: flex;
+	align-items: center;
+	list-style: none;
+	gap: 40px;
+}
+
+.nav-list__item a {
+	display: flex;
+	align-items: center;
+	gap: 7px;
+	font-size: 16px;
+	color: var(--text-secondary);
+	text-decoration: none;
+	font-weight: 500;
+	transition: 0.2s color ease;
+}
+
+.nav-list__item:hover a {
+	color: var(--accent-color);
+}
+
+.nav-list__item a svg {
+	display: flex;
+	height: 18px;
+	width: 18px;
 }
 
 .load-data--btn {
@@ -593,6 +631,7 @@ aside {
 /* HERO SECTION */
 
 .hero {
+	max-width: 1400px;
 	display: flex;
 	gap: 40px;
 }
@@ -712,7 +751,12 @@ aside {
 
 /* BENEFITS */
 
+/* .benefits {
+	max-width: 1400px;
+} */
+
 .benefits-list {
+	width: 100%;
 	max-width: 1400px;
 	padding-bottom: 50px;
 	display: flex;
@@ -722,7 +766,6 @@ aside {
 
 .benefits-list__item {
 	flex: 1;
-	max-width: 220px;
 	display: flex;
 	gap: 20px;
 }
@@ -819,7 +862,7 @@ aside {
 
 .user-guide-list__item {
 	position: relative;
-	max-width: 220px;
+	/* max-width: 220px; */
 	flex: 1;
 	display: flex;
 	flex-direction: column;
@@ -905,4 +948,105 @@ aside {
 
 .item-description strong {
 	color: var(--text-color);
+}
+
+.privacy {
+	padding: 25px;
+	max-width: 1400px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	gap: 30px;
+	background-color: #fef7fa;
+	border: 1px solid #fce0e9;
+	border-radius: var(--brs-md);
+}
+
+.privacy svg {
+	stroke: var(--accent-color);
+	height: 45px;
+	width: 45px;
+}
+
+.privacy-info {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.privacy-info h5 {
+	font-size: 16px;
+	color: var(--text-color);
+}
+
+.privacy-info span {
+	font-size: 16px;
+	color: var(--text-secondary);
+}
+
+/* FOOTER */
+
+.footer {
+	margin-top: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.footer a {
+	text-decoration: none;
+}
+
+.footer a:visited {
+	color: var(--text-secondary);
+}
+
+.footer-logo {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.footer-logo h6 {
+	font-size: 20px;
+	color: var(--text-color);
+}
+
+.footer-logo h6 span {
+	color: var(--accent-color);
+}
+
+.footer-logo-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: var(--brs-lg);
+}
+
+.footer-logo-wrapper img {
+	height: 30px;
+	width: 30px;
+	border-radius: var(--brs-lg);
+}
+
+.footer > span {
+	color: var(--text-secondary);
+}
+
+.github-link {
+	display: flex;
+	align-items: center;
+	gap: 7px;
+	font-size: 16px;
+	color: var(--text-secondary);
+	transition: 0.2s color ease;
+}
+
+.github-link svg{
+	height: 16px;
+	width: 16px;
+}
+
+.github-link:hover {
+	color: var(--accent-color) !important;
 }

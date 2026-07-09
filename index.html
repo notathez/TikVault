@@ -9,12 +9,25 @@
 </head>
 <body>
 	<header class="header">
-		<a class="main-logo">
+		<a class="main-logo" href="index.html">
 			<span class="logo-wrapper">
 				<img src="assets/tiktok-logo.png" alt="logo">
 			</span>
-			<h1>TikVault</h1>
+			<h1>Tik<span>Vault</span></h1>
 		</a>
+		<nav class="header-nav">
+			<ul class="nav-list">
+				<li class="nav-list__item"><a href="#features">Features</a></li>
+				<li class="nav-list__item"><a href="#user-guide">How it works</a></li>
+				<li class="nav-list__item"><a href="#privacy">Privacy</a></li>
+				<li class="nav-list__item">
+					<a href="https://github.com/notathez/TikVault">
+						GitHub
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-square-arrow-out-up-right-icon lucide-square-arrow-out-up-right"><path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"/><path d="m21 3-9 9"/><path d="M15 3h6v6"/></svg>
+					</a>
+				</li>
+			</ul>
+		</nav>
 		<button id="uploadBtn" class="load-data--btn">
 			<span>
 				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cloud-upload-icon lucide-cloud-upload"><path d="M12 13v8"/><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="m8 17 4-4 4 4"/></svg>
@@ -54,7 +67,6 @@
 				</div>
 			</div>
 		</section>
-		<section class="benefits">
 			<ul class="benefits-list">
 				<li class="benefits-list__item">
 					<span>
@@ -93,8 +105,7 @@
 					</div>
 				</li>
 			</ul>
-		</section>
-		<section class="features">
+		<section id="features" class="features">
 			<h2>Powerful features</h2>
 			<ul class="features-list">
 				<li class="features-list__item">
@@ -127,7 +138,7 @@
 				</li>
 			</ul>
 		</section>
-		<section class="user-guide">
+		<section id="user-guide" class="user-guide">
 			<h2>How it works</h2>
 			<ul class="user-guide-list">
 				<li class="user-guide-list__item">
@@ -164,9 +175,30 @@
 				</li>
 			</ul>
 		</section>
+		<section id="privacy" class="privacy">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a778e2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock-keyhole-icon lucide-lock-keyhole"><circle cx="12" cy="16" r="1"/><rect x="3" y="10" width="18" height="12" rx="2"/><path d="M7 10V7a5 5 0 0 1 10 0v3"/></svg>
+			<div class="privacy-info">
+				<h5>Your privacy is our priority</h5>
+				<span>TikVault is fully client-side application. Your data is never uploaded anywhere.</span>
+			</div>
+		</section>
 	</main>
 
-		<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script type="module" src="js/main.js"></script>
+	<footer class="footer">
+		<a class="footer-logo" href="index.html">
+			<span class="footer-logo-wrapper">
+				<img src="assets/tiktok-logo.png" alt="logo">
+			</span>
+			<h6>Tik<span>Vault</span></h6>
+		</a>
+		<span>Built for organizing your TikTok likes.</span>
+		<a href="https://github.com/notathez/TikVault" class="github-link">
+			GitHub
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-square-arrow-out-up-right-icon lucide-square-arrow-out-up-right"><path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"/><path d="m21 3-9 9"/><path d="M15 3h6v6"/></svg>
+		</a>
+	</footer>
+
+	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script type="module" src="js/main.js"></script>
 </body>
 </html>
