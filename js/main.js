@@ -1,11 +1,16 @@
-// import "./upload.js";
 import { loadVideos } from "./utils.js";
 
 const uploadField = document.querySelector("#upload-field");
 const fileInput = document.querySelector("#file-input");
 const uploadBtn = document.querySelector(".upload-button");
+const uploadBtnHead = document.querySelector("#uploadBtn")
 
 uploadBtn.addEventListener("click", (e) => {
+	e.stopPropagation();
+	fileInput.click();
+});
+
+uploadBtnHead.addEventListener("click", (e) => {
 	e.stopPropagation();
 	fileInput.click();
 });
