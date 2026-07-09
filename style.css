@@ -277,44 +277,99 @@ aside {
 
 .flatpickr-calendar {
   border: none;
-  border-radius: 16px;
+	border-radius: var(--brs-mg);
   box-shadow: 0 10px 30px rgba(0,0,0,.12);
 }
 
 .flatpickr-months {
+	padding: 10px 0;
+	display: flex;
+	justify-content: center;
+	justify-content: center;
+}
+
+.flatpickr-month {
+	border-radius: var(--brs-mg);
   background: var(--white);
 }
 
+.flatpickr-prev-month,
+.flatpickr-next-month {
+	top: 10px !important;
+	border: var(--border);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: var(--brs-sm);
+}
+
+.flatpickr-prev-month {
+	left: 10px !important;
+}
+
+.flatpickr-next-month {
+	right: 10px !important;
+}
+
+.flatpickr-weekdays {
+	padding: 0 5px;
+	color: var(--text-secondary) !important;
+}
+
 .flatpickr-current-month {
-  font-size: 16px;
-  font-weight: 600;
+	margin-left: 16px;
+	max-width: 65%;
+	padding: 0;
+  font-size: 18px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border: var(--border);
+	border-radius: var(--brs-sm);
+}
+
+.dayContainer {
+	padding: 5px;
 }
 
 .flatpickr-day {
-  border-radius: var(--brs-sm);
+  border-radius: var(--brs-xl);
+	font-family: Manrope, sans-serif;
+	color: var(--text-color);
 }
 
 .flatpickr-day:hover {
-  background: #f2f4f8;
+	background-color: var(--accent-light);
+	border: 1px solid var(--accent-light);
 }
 
 .flatpickr-day.selected {
-  background: #ff4d7a;
-  border-color: #ff4d7a;
+  background: var(--accent-color);
+	border-color: var(--accent-color);
+}
+
+.flatpickr-day.selected:hover {
+	background-color: var(--accent-dark);
+	border-color: var(--accent-dark);
 }
 
 .flatpickr-day.today {
-  border-color: #ff4d7a;
+  border-color: var(--accent-color);
+}
+
+.flatpickr-day.today:hover {
+	background: var(--accent-dark);
+	border: 1px solid var(--accent-dark);
 }
 
 .flatpickr-prev-month svg,
 .flatpickr-next-month svg {
-  fill: #555;
+  fill: var(--text-secondary);
 }
 
 .flatpickr-prev-month:hover svg,
 .flatpickr-next-month:hover svg {
-  fill: #ff4d7a;
+  fill: var(--accent-color);
 }
 
 /* SORT */
