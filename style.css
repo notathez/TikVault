@@ -226,7 +226,17 @@ aside {
 }
 
 .searchWrapper span > svg {
+	height: 16px;
+	width: 16px;
 	stroke: var(--icon-color);
+}
+
+.clear-search-btn {
+	display: none;
+	padding: 0;
+	background: transparent;
+	border: none;
+	cursor: pointer;
 }
 
 /* FILTERS */

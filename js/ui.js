@@ -45,4 +45,8 @@ export function renderVideos() {
 	)
 	})
 	renderPagination();
+	
+	list.scrollTo({
+		top: 0,
+	});
 }
