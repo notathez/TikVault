@@ -1,6 +1,7 @@
 import { state } from "./state.js";
 import { applyFilters } from "./filters.js";
 import { renderVideos } from "./ui.js";
+import { renderCountDisplay } from './pagination.js';
 
 export async function loadVideos(file) {
 	const text = await file.text();
@@ -19,4 +20,5 @@ export function refresh() {
   state.currentPage = 1;
   applyFilters();
   renderVideos();
+  renderCountDisplay();
 }

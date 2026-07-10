@@ -42,6 +42,10 @@ body {
 	overflow-x: hidden;
 }
 
+.vault {
+	overflow-y: hidden;
+}
+
 main {
 	display: flex;
 	align-items: center;
@@ -466,7 +470,7 @@ aside {
 }
 
 .history-list {
-	min-height: 429px;
+	min-height: 380px;
 	max-height: calc(100svh - 400px);
 	list-style: none;
 	overflow-y: auto;
@@ -615,15 +619,42 @@ aside {
 }
 
 .pagination-area {
-	margin-top: 20px;
+	margin-top: 30px;
 	display: none;
+	flex-direction: column;
+	gap: 12px;
+	/* align-items: center; */
+	/* justify-content: space-between; */
+}
+
+.pagination-area strong {
+	color: var(--text-color);
+}
+
+.count-display {
+	margin-left: 15px;
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	font-size: 14px;
+	color: var(--text-secondary);
+}
+
+.count-display svg {
+	height: 14px;
+	width: 14px;
+	stroke: var(--text-secondary);
+}
+
+.pagination-settings {
+	display: flex;
 	align-items: center;
 	justify-content: space-between;
 }
 
 .page-size {
   position: relative;
-  width: 120px;
+  width: 130px;
 	margin-right: 15px;
 }
 
@@ -634,11 +665,11 @@ aside {
   justify-content: space-between;
   align-items: center;
   padding: 0 14px;
-	border: none;
+	border: var(--border);
 	outline: none;
   border-radius: var(--brs-md);
-  background-color: var(--accent-color);
-  color: var(--white);
+	background-color: var(--white);
+	color: var(--text-color);
   cursor: pointer;
 }
 
@@ -654,8 +685,8 @@ aside {
   position: absolute;
   bottom: calc(100% + 8px);
   width: 100%;
-  background-color: var(--accent-color);
-	border: none;
+	background-color: var(--white);
+	border: var(--border);
   border-radius: var(--brs-md);
   list-style: none;
   padding: 6px;
@@ -672,12 +703,12 @@ aside {
   border-radius: var(--brs-sm);
   cursor: pointer;
   transition: 0.2s;
-	color: var(--white);
+	color: var(--text-color);
 	font-size: 14px;
 }
 
 .page-size__menu li:hover {
-  background: var(--accent-dark);
+	background-color: #efefef;
 }
 
 

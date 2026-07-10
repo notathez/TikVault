@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="style.css">
 	<link rel="icon" type="image/png" href="assets/favicon.png">
 </head>
-<body>
+<body class="vault">
 	<header class="header">
 		<a class="main-logo" href="index.html">
 			<span class="logo-wrapper">
@@ -93,18 +93,22 @@
 					</li>
 				</ul>
 				<div class="pagination-area">
-					<nav class="paginator"></nav>
-					<div class="page-size">
-						<button class="page-size__current" type="button">
-							<span>10 per page</span>
-							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
-						</button>
-						<ul class="page-size__menu">
-							<li data-value="10">10 per page</li>
-							<li data-value="25">25 per page</li>
-							<li data-value="40">40 per page</li>
-							<li data-value="100">100 per page</li>
-						</ul>
+					<div class="count-display">
+					</div>
+					<div class="pagination-settings">
+						<nav class="paginator"></nav>
+						<div class="page-size">
+							<button class="page-size__current" type="button">
+								<span>10 per page</span>
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
+							</button>
+							<ul class="page-size__menu">
+								<li data-value="10">10 per page</li>
+								<li data-value="25">25 per page</li>
+								<li data-value="40">40 per page</li>
+								<li data-value="100">100 per page</li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</section>

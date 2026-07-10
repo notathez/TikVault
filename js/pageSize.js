@@ -1,5 +1,6 @@
 import { state } from "./state.js";
 import { renderVideos } from "./ui.js";
+import { renderCountDisplay } from "./pagination.js";
 
 const pageSize = document.querySelector(".page-size");
 const menu = pageSize.querySelector(".page-size__menu");
@@ -16,6 +17,7 @@ menu.addEventListener("click", (e) => {
 
   currentText.textContent = `${state.itemsPerPage} per page`;
 
+  renderCountDisplay();
   renderVideos();
 
   pageSize.classList.remove("open");

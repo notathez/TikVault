@@ -2,6 +2,7 @@ import { state } from './state.js';
 import { renderVideos } from './ui.js';
 
 const paginator = document.querySelector(".paginator");
+const countDisplay = document.querySelector(".count-display");
 
 export function renderPagination() {
 	paginator.innerHTML = "";
@@ -126,6 +127,22 @@ export function initPagination() {
 	state.currentPage = Number(btn.dataset.page);
 
 	renderVideos();
-
+	renderCountDisplay();
 });
+}
+
+export function renderCountDisplay() {
+	const start = (state.currentPage - 1) * state.itemsPerPage + 1;
+  const end = Math.min(
+    state.currentPage * state.itemsPerPage,
+    state.filteredVideos.length
+  );
+
+	countDisplay.innerHTML = 
+	`
+	<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-text-align-justify-icon lucide-text-align-justify"><path d="M3 5h18"/><path d="M3 12h18"/><path d="M3 19h18"/></svg>
+	<span>
+		Showing <strong>${start}-${end}</strong> of <strong>${state.filteredVideos.length}</strong>
+	</span>
+	`
 }
