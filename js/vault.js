@@ -6,7 +6,6 @@ import "./pageSize.js";
 import "./sort.js";
 import "./uiIvents.js";
 import "./search.js";
-// import "./pagination.js"
 
 initUpload();
 initPlayer();

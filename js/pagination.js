@@ -1,4 +1,4 @@
-import { state } from './state.js';
+import { state, setCurrentPage } from './state.js';
 import { renderVideos } from './ui.js';
 
 const paginator = document.querySelector(".paginator");
@@ -107,7 +107,7 @@ export function initPagination() {
 		const page = Number(input.value);
 
 		if (page >= 1 && page <= totalPages) {
-			state.currentPage = page;
+			setCurrentPage(page);
 			renderVideos();
 		}
 
@@ -124,10 +124,9 @@ export function initPagination() {
 
 	if (!btn || btn.disabled) return;
 
-	state.currentPage = Number(btn.dataset.page);
+	setCurrentPage(Number(btn.dataset.page));
 
 	renderVideos();
-	renderCountDisplay();
 });
 }
 

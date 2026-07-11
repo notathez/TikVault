@@ -1,5 +1,5 @@
 import { state } from './state.js';
-import { renderPagination } from './pagination.js';
+import { renderPagination, renderCountDisplay } from './pagination.js';
 import { getPlayerLink } from './utils.js';
 
 const list = document.querySelector(".history-list");
@@ -45,6 +45,7 @@ export function renderVideos() {
 	)
 	})
 	renderPagination();
+	renderCountDisplay();
 	
 	list.scrollTo({
 		top: 0,
