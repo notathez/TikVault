@@ -3,8 +3,14 @@ export const state = {
 	filteredVideos: [],
 	currentPage: Number(localStorage.getItem("currentPage")) || 1,
 	itemsPerPage: Number(localStorage.getItem("itemsPerPage")) || 10,
+	globalIndex: Number(localStorage.getItem("globalIndex")) || 0,
 	sortType: 'newest'
 };
+
+export function setGlobalIndex(index) {
+	state.globalIndex = index;
+	localStorage.setItem("globalIndex", index)
+}
 
 export function setCurrentPage(page) {
 	state.currentPage = page;

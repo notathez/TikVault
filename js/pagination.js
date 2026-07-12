@@ -1,3 +1,4 @@
+import { updateActiveItem } from './player.js';
 import { state, setCurrentPage } from './state.js';
 import { renderVideos } from './ui.js';
 
@@ -109,6 +110,7 @@ export function initPagination() {
 		if (page >= 1 && page <= totalPages) {
 			setCurrentPage(page);
 			renderVideos();
+			updateActiveItem();
 		}
 
 	});
@@ -127,6 +129,7 @@ export function initPagination() {
 	setCurrentPage(Number(btn.dataset.page));
 
 	renderVideos();
+	updateActiveItem();
 });
 }
 

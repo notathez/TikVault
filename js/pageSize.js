@@ -1,6 +1,7 @@
 import { setItemsPerPage, state } from "./state.js";
 import { renderVideos } from "./ui.js";
 import { renderCountDisplay } from "./pagination.js";
+import { updateActiveItem } from "./player.js";
 
 const pageSize = document.querySelector(".page-size");
 const menu = pageSize.querySelector(".page-size__menu");
@@ -15,12 +16,13 @@ menu.addEventListener("click", (e) => {
   if (!item) return;
   
   setItemsPerPage(Number(item.dataset.value))
-  state.currentPage = 1;
+  state.currentPage = Math.floor(state.globalIndex / state.itemsPerPage) + 1;;
 
   currentText.textContent = `${state.itemsPerPage} per page`;
 
   renderCountDisplay();
   renderVideos();
+  updateActiveItem();
 
   pageSize.classList.remove("open");
 });

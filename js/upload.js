@@ -1,5 +1,5 @@
 import {loadVideos, refresh} from './utils.js'
-import { setCurrentPage, setItemsPerPage, state } from './state.js';
+import { setCurrentPage, setGlobalIndex, setItemsPerPage, state } from './state.js';
 
 const uploadBtn = document.querySelector("#uploadBtn");
 const fileInput = document.querySelector("#fileInput");
@@ -40,6 +40,7 @@ export function initUpload() {
 		localStorage.setItem("tiktok-data", JSON.stringify(data));
 		setCurrentPage(1);
 		setItemsPerPage(10);
+		setGlobalIndex(0);
 		currentText.textContent = `${state.itemsPerPage} per page`;
 
 		state.videos = data["Likes and Favorites"]["Like List"]["ItemFavoriteList"]
