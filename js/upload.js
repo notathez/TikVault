@@ -41,8 +41,6 @@ export function initUpload() {
 		setCurrentPage(1);
 		setItemsPerPage(10);
 		currentText.textContent = `${state.itemsPerPage} per page`;
-		// localStorage.setItem("currentPage", 1);
-		// localStorage.setItem("itemsPerPage", 10);
 
 		state.videos = data["Likes and Favorites"]["Like List"]["ItemFavoriteList"]
 		state.filteredVideos = [...state.videos];
