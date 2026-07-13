@@ -47,12 +47,10 @@ body {
 
 main {
 	display: flex;
-	align-items: center;
 	gap: 15px;
 }
 
 aside {
-	min-height: 100%;
 	max-width: 630px;
 	display: flex;
 	flex-direction: column;
@@ -436,7 +434,7 @@ aside {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 6px;
+  padding: 10px;
   background: var(--white);
   border: var(--border);
   border-radius: var(--brs-sm);
@@ -478,10 +476,15 @@ aside {
 	color: var(--text-secondary);
 }
 
+.sort__menu li:hover {
+	background-color: var(--accent-light);
+}
+
 /* HISTORY LIST */
 
 .history-navigation {
-	height: 100%;
+	flex: 1;
+	/* height: 100%; */
 	padding: 15px;
 	background-color: var(--white);
 	border: var(--border);
@@ -509,7 +512,6 @@ aside {
 }
 
 .history-list {
-	min-height: 380px;
 	height: calc(100svh - 420px);
 	list-style: none;
 	overflow-y: auto;

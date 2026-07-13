@@ -45,9 +45,12 @@ function setActiveItem(item) {
 
   item.classList.add("active");
 }
-copyLinkBtn.addEventListener('click', async () => {
+
+if (copyLinkBtn) {
+  copyLinkBtn.addEventListener('click', async () => {
 	await navigator.clipboard.writeText(videoLink.href)
 })
+}
 
 export function updateActiveItem() {
   list.querySelectorAll(".history-list__item")
