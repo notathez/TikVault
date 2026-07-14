@@ -1,6 +1,5 @@
 import { state } from "./state.js";
 import { renderVideos } from "./ui.js";
-import { applyFilters } from "./filters.js";
 import { refresh } from "./utils.js";
 
 export const sort = document.querySelector(".sort");

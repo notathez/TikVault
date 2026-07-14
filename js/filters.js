@@ -1,4 +1,4 @@
-import { state } from "./state.js";
+import { setCurrentPage, state } from "./state.js";
 import { dateFrom, dateTo } from "./dateFilter.js";
 
 export function applyFilters() {
@@ -27,4 +27,6 @@ export function applyFilters() {
   } else {
     state.filteredVideos.sort((a, b) => new Date(a.date) - new Date(b.date));
   }
+
+  setCurrentPage(1)
 }

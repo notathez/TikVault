@@ -17,7 +17,6 @@ export function getPlayerLink(link) {
 }
 
 export function refresh() {
-  // state.currentPage = 1;
   setCurrentPage(state.currentPage)
   setItemsPerPage(state.itemsPerPage)
   applyFilters();
