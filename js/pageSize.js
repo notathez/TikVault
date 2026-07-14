@@ -1,5 +1,5 @@
 import { setItemsPerPage, state } from "./state.js";
-import { renderVideos } from "./ui.js";
+import { renderVideos, scrollToSelectedVideo } from "./ui.js";
 import { renderCountDisplay } from "./pagination.js";
 import { updateActiveItem } from "./player.js";
 
@@ -25,6 +25,8 @@ menu.addEventListener("click", (e) => {
   updateActiveItem();
 
   pageSize.classList.remove("open");
+
+  scrollToSelectedVideo();
 });
 
 current.addEventListener("click", () => {

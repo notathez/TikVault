@@ -18,6 +18,14 @@ export function setCurrentPage(page) {
 }
 
 export function setItemsPerPage(size) {
-	state.itemsPerPage = size;
-	localStorage.setItem("itemsPerPage", size);
+	const firstVisibleIndex =
+    (state.currentPage - 1) * state.itemsPerPage;
+
+  state.itemsPerPage = size;
+
+  state.currentPage =
+    Math.floor(firstVisibleIndex / size) + 1;
+
+  localStorage.setItem("itemsPerPage", size);
+  localStorage.setItem("currentPage", state.currentPage);
 }

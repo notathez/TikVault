@@ -51,3 +51,16 @@ export function renderVideos() {
 		top: 0,
 	});
 }
+
+export function scrollToSelectedVideo() {
+  const item = list.querySelector(
+    `[data-index="${state.globalIndex}"]`
+  );
+
+	if (!item) return;
+
+	list.scrollTo({
+		top: item.offsetTop,
+		behavior: "smooth"
+	});
+}
