@@ -223,9 +223,14 @@ aside {
 }
 
 .copy-link a {
+	max-width: 95%;
+	padding-right: 10px;
 	font-size: 14px;
 	text-decoration: none;
 	color: var(--text-secondary);
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 
 .copy-link button {
@@ -233,9 +238,12 @@ aside {
 	border: none;
 	background: transparent;
 	cursor: pointer;
+	color: var(--text-secondary);
 }
 
 .copy-link button > svg {
+	height: 20px;
+	width: 20px;
 	stroke: var(--text-secondary);
 }
 
