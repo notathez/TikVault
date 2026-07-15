@@ -2,7 +2,6 @@ import {setGlobalIndex, state} from './state.js'
 import { getPlayerLink } from "./utils.js";
 
 const player = document.querySelector(".player");
-// const firstItem = document.querySelector(".history-list__item");
 const videoLink = document.querySelector(".copy-link a");
 const copyLinkBtn = document.querySelector(".copy-link button");
 const list = document.querySelector(".history-list");

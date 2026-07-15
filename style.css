@@ -280,6 +280,18 @@ aside {
 	cursor: pointer;
 }
 
+.searchWrapper.input-error {
+	border: 1px solid var(--accent-dark);
+}
+
+.error-info {
+	margin-top: -7px;
+	display: none;
+	color: var(--accent-dark);
+	margin-left: 10px;
+	font-size: 14px;
+}
+
 /* FILTERS */
 
 .filters {
