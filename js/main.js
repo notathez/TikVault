@@ -1,5 +1,6 @@
 import { loadVideos } from "./utils.js";
-import { setCurrentPage, setItemsPerPage, state } from "./state.js";
+import { setCurrentPage, setItemsPerPage, setTheme, state } from "./state.js";
+import "./theme.js";
 
 const uploadField = document.querySelector("#upload-field");
 const fileInput = document.querySelector("#file-input");

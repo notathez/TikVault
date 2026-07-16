@@ -2,13 +2,14 @@
 
 :root {
 	/* colors */
-	--text-color: #0a0a0a;
-	--text-secondary: #787c99;
-	--accent-color: #f12a67;
-	--accent-dark: #cd2054;
-	--accent-light: #fceff3;
-	--white: #ffffff;
-	--border-c: #eff0f4;
+  --bg-color: #f7f8fc;
+  --surface-color: #ffffff;
+  --text-color: #0a0a0a;
+  --text-secondary: #787c99;
+  --accent-color: #f12a67;
+  --accent-dark: #cd2054;
+  --accent-light: #fceff3;
+  --border-c: #eff0f4;
 
 	/* border-radius */
 	--brs-sm: 6px;
@@ -19,6 +20,17 @@
 
 	/* border */
 	--border: 1px solid var(--border-c);
+}
+
+html.dark {
+  --bg-color: #111318;
+  --surface-color: #1b1e27;
+  --text-color: #f4f5f8;
+  --text-secondary: #9ca4b5;
+  --accent-color: #f12a67;
+  --accent-dark: #d81f59;
+  --accent-light: rgba(241, 42, 103, 0.16);
+  --border-c: #31374a;
 }
 
 * {
@@ -37,8 +49,9 @@ body {
 	padding: 20px 40px;
 	min-height: 100svh;
 	min-width: 100svw;
-	background-color: #f7f7f7;
+	background-color: var(--bg-color);
 	overflow-x: hidden;
+	user-select: none;
 }
 
 .vault {
@@ -168,7 +181,7 @@ aside {
 	display: flex;
 	align-items: center;
 	gap: 10px;
-	color: var(--white);
+	color: #f4f5f8;
 	background-color: var(--accent-color);
 	border: none;
 	outline: none;
@@ -187,6 +200,29 @@ aside {
 	background-color: var(--accent-dark);
 }
 
+#themeSwitcher {
+	height: 40px;
+	width: 40px;
+	padding: 5px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: var(--border);
+	border-radius: var(--brs-sm);
+	background-color: var(--surface-color);
+	cursor: pointer;
+}
+
+#themeSwitcher svg {
+	stroke: var(--text-color);
+}
+
+.header-right {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
+
 /* VIEWER */
 
 .viewer {
@@ -199,6 +235,7 @@ aside {
 .player {
 	height: calc(100svh - 220px);
 	border-radius: var(--brs-md);
+	background-color: var(--surface-color);
 }
 
 .video-info {
@@ -208,7 +245,7 @@ aside {
 	gap: 10px;
 	border: var(--border);
 	border-radius: var(--brs-md);
-	background-color: var(--white);
+	background-color: var(--surface-color);
 }
 
 .video-info h3 {
@@ -266,6 +303,7 @@ aside {
 	font-family: Manrope, sans-serif;
 	font-size: 16px;
 	color: var(--text-color);
+	background-color: inherit;
 }
 
 .searchWrapper span {
@@ -307,7 +345,7 @@ aside {
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
-	background-color: var(--white);
+	background-color: var(--surface-color);
 	border: var(--border);
 	border-radius: var(--brs-md);
 }
@@ -319,6 +357,7 @@ aside {
   font-size: 16px;
 	outline: none;
 	color: var(--text-color);
+	background-color: inherit;
 }
 
 .date-filter {
@@ -350,6 +389,11 @@ aside {
   border: none;
 	border-radius: var(--brs-mg);
   box-shadow: 0 10px 30px rgba(0,0,0,.12);
+	background-color: inherit;
+}
+
+.flatpickr-calendar:before, .flatpickr-calendar:after {
+	border: none;
 }
 
 .flatpickr-months {
@@ -361,7 +405,7 @@ aside {
 
 .flatpickr-month {
 	border-radius: var(--brs-mg);
-  background: var(--white);
+  background: var(--surface-color);
 }
 
 .flatpickr-prev-month,
@@ -387,6 +431,10 @@ aside {
 	color: var(--text-secondary) !important;
 }
 
+.flatpickr-weekday {
+	color: var(--text-secondary) !important;
+}
+
 .flatpickr-current-month {
 	margin-left: 16px;
 	max-width: 65%;
@@ -397,6 +445,7 @@ aside {
 	justify-content: space-between;
 	border: var(--border);
 	border-radius: var(--brs-sm);
+	color: var(--text-color);
 }
 
 .dayContainer {
@@ -443,6 +492,10 @@ aside {
   fill: var(--accent-color);
 }
 
+.flatpickr-day.flatpickr-disabled, .flatpickr-day.flatpickr-disabled:hover, .flatpickr-day.prevMonthDay, .flatpickr-day.nextMonthDay, .flatpickr-day.notAllowed, .flatpickr-day.notAllowed.prevMonthDay, .flatpickr-day.notAllowed.nextMonthDay {
+	color: var(--text-secondary);
+}
+
 /* SORT */
 
 .sort {
@@ -455,7 +508,7 @@ aside {
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  background: var(--white);
+  background: var(--surface-color);
   border: var(--border);
   border-radius: var(--brs-sm);
 	color: var(--text-secondary);
@@ -479,7 +532,7 @@ aside {
   padding: 6px;
   margin: 0;
   list-style: none;
-  background: var(--white);
+  background: var(--surface-color);
   border: var(--border);
   border-radius: var(--brs-sm);
 	z-index: 100;
@@ -506,7 +559,7 @@ aside {
 	flex: 1;
 	/* height: 100%; */
 	padding: 15px;
-	background-color: var(--white);
+	background-color: var(--surface-color);
 	border: var(--border);
 	border-radius: var(--brs-md);
 }
@@ -536,6 +589,19 @@ aside {
 	list-style: none;
 	overflow-y: auto;
 	overflow-x: hidden;
+}
+
+.history-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.history-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.history-list::-webkit-scrollbar-thumb {
+  background: var(--text-secondary);
+	border-radius: var(--brs-sm);
 }
 
 .history-list__item {
@@ -569,7 +635,8 @@ aside {
 
 .history-list__item:hover {
 	transform: translateX(4px);
-	background-color: #fff8fa;
+	/* background-color: #fff8fa; */
+	background-color: var(--accent-light);
 }
 
 .tiktok-logo_wrapper {
@@ -646,14 +713,23 @@ aside {
 .paginator button {
   width: 36px;
   height: 36px;
-  border: none;
+  border: var(--border);
   border-radius: var(--brs-sm);
   cursor: pointer;
+	color: var(--text-color);
+	background-color: var(--surface-color);
 }
 
 .paginator button.active {
   background: var(--accent-color);
-  color: var(--white);
+  color: var(--surface-color);
+}
+
+.paginator button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background: var(--surface-color);
+  color: var(--text-secondary);
 }
 
 .page-input {
@@ -674,6 +750,7 @@ aside {
 	justify-content: center;
   cursor: pointer;
   user-select: none;
+	color: var(--text-color);
 }
 
 .page-input {
@@ -743,6 +820,7 @@ aside {
 }
 
 .page-size__current svg {
+	stroke: var(--accent-color);
   transition: 0.2s;
 }
 
@@ -754,7 +832,7 @@ aside {
   position: absolute;
   bottom: calc(100% + 8px);
   width: 100%;
-	background-color: var(--white);
+	background-color: var(--surface-color);
 	border: var(--border);
   border-radius: var(--brs-md);
   list-style: none;
@@ -777,7 +855,7 @@ aside {
 }
 
 .page-size__menu li:hover {
-	background-color: #efefef;
+	background-color: var(--bg-color);
 }
 
 
@@ -873,7 +951,7 @@ aside {
 	border: none;
 	border-radius: var(--brs-md);
 	font-size: 18px;
-	color: var(--white);
+	color: #f7f8fc;
 	cursor: pointer;
 	transition: 0.2s background-color ease;
 }
@@ -974,7 +1052,7 @@ aside {
 	display: flex;
 	flex-direction: column;
 	align-items: start;
-	background-color: var(--white);
+	background-color: var(--surface-color);
 	border: var(--border);
 	border-radius: var(--brs-mg);
 }
@@ -1056,7 +1134,7 @@ aside {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	color: var(--white);
+	color: var(--surface-color);
 	background-color: var(--accent-color);
 	border-radius: var(--brs-xl);
 	margin-bottom: 10px;

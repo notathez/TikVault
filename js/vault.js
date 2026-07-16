@@ -6,6 +6,7 @@ import "./pageSize.js";
 import "./sort.js";
 import "./uiIvents.js";
 import "./search.js";
+import "./theme.js"
 
 initUpload();
 initPlayer();

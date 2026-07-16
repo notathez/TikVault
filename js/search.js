@@ -31,7 +31,7 @@ searchInput.addEventListener("keydown", e => {
 searchInput.addEventListener("input", e => {
   const value = e.target.value.trim();
 
-  if (videoUrlRegex.test(value) || shortUrlRegex.test(value)) {
+  if (videoUrlRegex.test(value) || shortUrlRegex.test(value) || value == "") {
     searchWrapper.classList.remove("input-error");
     errorInfo.style.display = "none";
     list.style.height = "calc(100svh - 420px)"
@@ -40,6 +40,9 @@ searchInput.addEventListener("input", e => {
 
 clearBtn.addEventListener("click", () => {
   searchInput.value = "";
+  searchWrapper.classList.remove("input-error");
+  errorInfo.style.display = "none";
+  list.style.height = "calc(100svh - 420px)"
 })
 
 searchInput.addEventListener("input", (e) => {
