@@ -9,6 +9,7 @@
   --accent-color: #f12a67;
   --accent-dark: #cd2054;
   --accent-light: #fceff3;
+	--item-active: #ffd9e4;
   --border-c: #eff0f4;
 
 	/* border-radius */
@@ -29,7 +30,8 @@ html.dark {
   --text-secondary: #9ca4b5;
   --accent-color: #f12a67;
   --accent-dark: #d81f59;
-  --accent-light: rgba(241, 42, 103, 0.16);
+  --accent-light: rgba(177, 50, 88, 0.479);
+	--item-active: #501626;
   --border-c: #31374a;
 }
 
@@ -211,6 +213,11 @@ aside {
 	border-radius: var(--brs-sm);
 	background-color: var(--surface-color);
 	cursor: pointer;
+	transition: 0.2s background-color ease;
+}
+
+#themeSwitcher:hover {
+	background-color: var(--bg-color);
 }
 
 #themeSwitcher svg {
@@ -550,7 +557,7 @@ aside {
 }
 
 .sort__menu li:hover {
-	background-color: var(--accent-light);
+	background-color: var(--bg-color);
 }
 
 /* HISTORY LIST */
@@ -592,7 +599,7 @@ aside {
 }
 
 .history-list::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 .history-list::-webkit-scrollbar-track {
@@ -600,8 +607,12 @@ aside {
 }
 
 .history-list::-webkit-scrollbar-thumb {
-  background: var(--text-secondary);
-	border-radius: var(--brs-sm);
+  background: #555b72;
+	border-radius: 999px;
+}
+
+.history-list::-webkit-scrollbar-thumb:hover {
+  background: #6f7691;
 }
 
 .history-list__item {
@@ -611,7 +622,8 @@ aside {
 	align-items: center;
 	font-size: 16px;
 	border-radius: var(--brs-md);
-	border-left: 3px solid transparent;
+	/* border: 2px solid inherit; */
+	border-left: 2px solid transparent;
 	overflow: hidden;
 	cursor: pointer;
 	transition: 0.2s transform ease, 0.2s background-color ease;
@@ -624,18 +636,17 @@ aside {
   bottom: 0;
 	left: 50%;
 	transform: translateX(-50%);
-  width: calc(100% - 25px);
+  width: calc(100% - 18px);
 	background-color: var(--border-c);
 }
 
 .history-list__item.active {
-	background-color: var(--accent-light);
-	border-left: 3px solid var(--accent-color);
+	background-color: var(--item-active);
+	border-left: 2px solid var(--accent-color);
 }
 
-.history-list__item:hover {
+.history-list__item:not(.active):hover {
 	transform: translateX(4px);
-	/* background-color: #fff8fa; */
 	background-color: var(--accent-light);
 }
 
@@ -722,14 +733,18 @@ aside {
 
 .paginator button.active {
   background: var(--accent-color);
-  color: var(--surface-color);
+	color: #f4f5f8;
 }
 
 .paginator button:disabled {
   opacity: 0.4;
-  cursor: not-allowed;
+  cursor: default;
   background: var(--surface-color);
   color: var(--text-secondary);
+}
+
+.paginator button:not(.active):not(:disabled):hover {
+  background: var(--bg-color);
 }
 
 .page-input {
