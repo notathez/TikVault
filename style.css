@@ -278,17 +278,26 @@ aside {
 }
 
 .copy-link button {
-	padding: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 5px;
+	border-radius: var(--brs-sm);
 	border: none;
 	background: transparent;
 	cursor: pointer;
 	color: var(--text-secondary);
+	transition: 0.2s background-color ease;
 }
 
 .copy-link button > svg {
 	height: 20px;
 	width: 20px;
 	stroke: var(--text-secondary);
+}
+
+.copy-link button:hover {
+	background-color: var(--bg-color);
 }
 
 /* SEARCH */
@@ -378,16 +387,22 @@ aside {
 }
 
 .date-select_wrapper {
-	padding: 10px;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
+	position: relative;
+	padding: 10px 0 10px 10px;
 	border: var(--border);
 	border-radius: var(--brs-sm);
 }
 
 .date-select_wrapper input {
 	width: 100%;
+	z-index: 5;
+}
+
+.date-select_wrapper svg {
+	position: absolute;
+	right: 10px;
+	z-index: 1;
+	pointer-events: none;
 }
 
 /* FLATPICKER CALENDAR */
@@ -564,8 +579,7 @@ aside {
 
 .history-navigation {
 	flex: 1;
-	/* height: 100%; */
-	padding: 15px;
+	padding: 15px 10px 15px 15px;
 	background-color: var(--surface-color);
 	border: var(--border);
 	border-radius: var(--brs-md);
@@ -592,9 +606,10 @@ aside {
 }
 
 .history-list {
+	padding-right: 10px;
 	height: calc(100svh - 420px);
 	list-style: none;
-	overflow-y: auto;
+	overflow-y: scroll;
 	overflow-x: hidden;
 }
 
@@ -607,12 +622,13 @@ aside {
 }
 
 .history-list::-webkit-scrollbar-thumb {
-  background: #555b72;
+	background-color: var(--border-c);
 	border-radius: 999px;
+	cursor: pointer;
 }
 
 .history-list::-webkit-scrollbar-thumb:hover {
-  background: #6f7691;
+  background: var(--text-secondary);
 }
 
 .history-list__item {
@@ -622,7 +638,6 @@ aside {
 	align-items: center;
 	font-size: 16px;
 	border-radius: var(--brs-md);
-	/* border: 2px solid inherit; */
 	border-left: 2px solid transparent;
 	overflow: hidden;
 	cursor: pointer;
