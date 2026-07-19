@@ -336,15 +336,26 @@ aside {
 
 .clear-search-btn {
 	display: none;
-	padding: 0;
+	padding: 5px;
 	background: transparent;
 	border: none;
+	border-radius: var(--brs-sm);
 	cursor: pointer;
+	transition: 0.2s background-color ease;
+}
+
+.clear-search-btn:hover {
+	background-color: var(--accent-light);
+}
+
+.clear-search-btn:hover svg {
+	stroke: var(--accent-dark);
 }
 
 .searchWrapper.input-error {
 	border: 1px solid var(--accent-dark);
 }
+
 
 .error-info {
 	margin-top: -7px;
