@@ -66,7 +66,7 @@ main {
 }
 
 aside {
-	max-width: 630px;
+	flex: 0 0 630px;
 	display: flex;
 	flex-direction: column;
 	gap: 15px;
@@ -394,23 +394,25 @@ aside {
 }
 
 .date-filter > div {
-	flex: 1	;
+	flex: 1;
 }
 
 .date-select_wrapper {
 	position: relative;
-	padding: 10px 0 10px 10px;
+	padding: 0;
 	border: var(--border);
 	border-radius: var(--brs-sm);
 }
 
 .date-select_wrapper input {
+	padding: 10px 0 10px 10px;
 	width: 100%;
 	z-index: 5;
 }
 
 .date-select_wrapper svg {
 	position: absolute;
+	top: 10px;
 	right: 10px;
 	z-index: 1;
 	pointer-events: none;
