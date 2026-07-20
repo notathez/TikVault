@@ -410,12 +410,31 @@ aside {
 	z-index: 5;
 }
 
-.date-select_wrapper svg {
+.date-icon,
+.clear-icon {
+	height: 20px;
+	width: 20px;
 	position: absolute;
-	top: 10px;
 	right: 10px;
-	z-index: 1;
+	top: 10px;
+	transition: 0.2s;
+	stroke: var(--text-secondary);
+}
+
+.clear-icon {
+	opacity: 0;
 	pointer-events: none;
+	cursor: pointer;
+}
+
+.date-select_wrapper.has-date .date-icon {
+	opacity: 0;
+	pointer-events: none;
+}
+
+.date-select_wrapper.has-date .clear-icon {
+	opacity: 1;
+	pointer-events: auto;
 }
 
 /* FLATPICKER CALENDAR */
@@ -731,6 +750,7 @@ aside {
 .empty-list h2 {
 	margin-top: -50px;
 	font-size: 28px;
+	color: var(--text-color);
 }
 
 .empty-list span {
@@ -738,6 +758,7 @@ aside {
 	max-width: 250px;
 	font-size: 16px;
 	text-align: center;
+	color: var(--text-secondary);
 }
 
 /* PAGINATION AREA */
