@@ -1,6 +1,6 @@
 import { loadVideos } from "./utils.js";
 import { setCurrentPage, setItemsPerPage, setTheme, state } from "./state.js";
-import "./theme.js";
+import { initTheme } from "./theme.js";
 
 const uploadField = document.querySelector("#upload-field");
 const fileInput = document.querySelector("#file-input");
@@ -52,3 +52,5 @@ uploadField.addEventListener("drop", (e) => {
 
 	if (!file) return;
 })
+
+initTheme();
