@@ -66,7 +66,7 @@ main {
 }
 
 aside {
-	flex: 0 0 630px;
+	flex: 0 0 600px;
 	display: flex;
 	flex-direction: column;
 	gap: 15px;
@@ -300,13 +300,24 @@ aside {
 	background-color: var(--bg-color);
 }
 
+/* SEARCH BAR */
+
+.search-bar {
+	display: flex;
+	gap: 10px;
+}
+
 /* SEARCH */
+
+.search {
+	flex: 1;
+}
 
 .searchWrapper {
 	display: flex;
 	align-items: center;
 	gap: 10px;
-	padding: 10px 15px;
+	padding: 10px;
 	position: relative;
 	border: var(--border);
 	border-radius: var(--brs-sm);
@@ -320,6 +331,10 @@ aside {
 	font-size: 16px;
 	color: var(--text-color);
 	background-color: inherit;
+}
+
+.searchWrapper input::placeholder {
+	color: var(--text-secondary);
 }
 
 .searchWrapper span {
@@ -336,7 +351,7 @@ aside {
 
 .clear-search-btn {
 	display: none;
-	padding: 5px;
+	padding: 3px;
 	background: transparent;
 	border: none;
 	border-radius: var(--brs-sm);
@@ -356,13 +371,47 @@ aside {
 	border: 1px solid var(--accent-dark);
 }
 
-
 .error-info {
-	margin-top: -7px;
+	margin-top: 5px;
 	display: none;
 	color: var(--accent-dark);
 	margin-left: 10px;
 	font-size: 14px;
+}
+
+/* VIDEOS SWITCH */
+
+.videos-switch {
+	height: 44px;
+	display: flex;
+	border: var(--border);
+	border-radius: var(--brs-sm);
+}
+
+.videos-switch button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 11px;
+	border: none;
+	border-radius: 5px;
+	background-color: var(--surface-color);
+	cursor: pointer;
+}
+
+.videos-switch button > svg {
+	height: 20px;
+	width: 20px;
+	stroke: var(--text-secondary);
+}
+
+.videos-switch button.active svg {
+	stroke: var(--accent-color);
+}
+
+.videos-switch button.active {
+	background-color: var(--accent-light);
+	/* background-color: var(--bg-color); */
 }
 
 /* FILTERS */
@@ -385,6 +434,11 @@ aside {
 	outline: none;
 	color: var(--text-color);
 	background-color: inherit;
+}
+
+#date-from::placeholder,
+#date-to::placeholder {
+	color: var(--text-secondary);
 }
 
 .date-filter {

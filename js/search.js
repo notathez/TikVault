@@ -42,7 +42,8 @@ clearBtn.addEventListener("click", () => {
   searchInput.value = "";
   searchWrapper.classList.remove("input-error");
   errorInfo.style.display = "none";
-  list.style.height = "calc(100svh - 420px)"
+  list.style.height = "calc(100svh - 420px)";
+  clearBtn.style.display = "none";
 })
 
 searchInput.addEventListener("input", (e) => {
