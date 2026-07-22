@@ -17,6 +17,15 @@ if (!raw) {
 		setCurrentPage(state.currentPage);
 		setItemsPerPage(state.itemsPerPage);
 
+		state.likedVideos = data["Likes and Favorites"]["Like List"]["ItemFavoriteList"].map(item => ({
+			link: item.link,
+			date: item.date
+		}));
+		state.savedVideos = data["Likes and Favorites"]["Favorite Videos"]["FavoriteVideoList"].map(item => ({
+			link: item.Link,
+			date: item.Date
+		}));
+
     state.videos = data["Likes and Favorites"]["Like List"]["ItemFavoriteList"];
     state.filteredVideos = [...state.videos];
 

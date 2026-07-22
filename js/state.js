@@ -1,11 +1,14 @@
 export const state = {
+	likedVideos: [],
+	savedVideos: [],
 	videos: [],
 	filteredVideos: [],
 	currentPage: Number(localStorage.getItem("currentPage")) || 1,
 	itemsPerPage: Number(localStorage.getItem("itemsPerPage")) || 10,
 	globalIndex: Number(localStorage.getItem("globalIndex")) || 0,
 	sortType: 'newest',
-	theme: localStorage.getItem("theme") || "light"
+	theme: localStorage.getItem("theme") || "light",
+	mode: localStorage.getItem("mode") || "liked"
 };
 
 export function setGlobalIndex(index) {
@@ -39,4 +42,9 @@ export function setTheme(theme) {
 		"dark",
 		theme == "dark"
 	)
+}
+
+export function setMode(mode) {
+	state.mode = mode;
+	localStorage.setItem("mode", mode);
 }

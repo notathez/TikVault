@@ -397,6 +397,7 @@ aside {
 	border-radius: 5px;
 	background-color: var(--surface-color);
 	cursor: pointer;
+	transition: 0.2s;
 }
 
 .videos-switch button > svg {
