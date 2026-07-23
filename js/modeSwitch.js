@@ -25,7 +25,7 @@ export function initSwitch() {
 	switchButtons.forEach(switchBtn => {
 		switchBtn.classList.remove("active");
 		
-		if (switchBtn.dataset.mode == "liked") {
+		if (switchBtn.dataset.mode == state.mode) {
 			switchBtn.classList.add("active");
 		}
 	})
