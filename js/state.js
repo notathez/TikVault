@@ -9,6 +9,7 @@ export const state = {
 		liked: {
 			currentPage: Number(localStorage.getItem("likedCurrentPage")) || 1,
 			// globalIndex: Number(localStorage.getItem("likedGlobalIndex")) || 0,
+			firstVisibleIndex: Number(localStorage.getItem("likedFirstVisibleIndex")) || 0,
 			sortType: localStorage.getItem("likedSortType") || "newest",
 			dateFrom: localStorage.getItem("likedDateFrom") || null,
 			dateTo: localStorage.getItem("likedDateTo") || null,
@@ -16,6 +17,7 @@ export const state = {
 		saved: {
 			currentPage: Number(localStorage.getItem("savedCurrentPage")) || 1,
 			// globalIndex: Number(localStorage.getItem("savedGlobalIndex")) || 0,
+			firstVisibleIndex: Number(localStorage.getItem("savedFirstVisibleIndex")) || 0,
 			sortType: localStorage.getItem("savedSortType") || "newest",
 			dateFrom: localStorage.getItem("savedDateFrom") || null,
 			dateTo: localStorage.getItem("savedDateTo") || null,
@@ -100,4 +102,9 @@ export function setTheme(theme) {
 export function setMode(mode) {
 	state.mode = mode;
 	localStorage.setItem("mode", mode);
+}
+
+export function setFirstVisibleIndex(index) {
+	state.lists[state.mode].firstVisibleIndex = index;
+	localStorage.setItem(state.mode == "liked" ? "likedFirstVisibleIndex" : "savedFirstVisibleIndex", index);
 }

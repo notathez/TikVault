@@ -1,5 +1,5 @@
 import { updateActiveItem } from './player.js';
-import { state, setCurrentPage } from './state.js';
+import { state, setCurrentPage, setFirstVisibleIndex } from './state.js';
 import { renderVideos } from './ui.js';
 
 const paginator = document.querySelector(".paginator");
@@ -10,15 +10,15 @@ export function renderPagination() {
 
 	const totalPages = Math.ceil(state.filteredVideos.length / state.itemsPerPage);
 
-	addButton("<<", 1, state.currentPage === 1);
-	addButton("<", state.currentPage - 1, state.currentPage === 1);
+	addButton("<<", 1, state.lists[state.mode].currentPage === 1);
+	addButton("<", state.lists[state.mode].currentPage - 1, state.lists[state.mode].currentPage === 1);
 
 	if (totalPages <= 5) {
 		for (let i = 1; i <= totalPages; i++) {
 			addPage(i);
 		}
 
-	} else if (totalPages - state.currentPage <= 3) {
+	} else if (totalPages - state.lists[state.mode].currentPage <= 3) {
 		addDots();
 
 		const start = Math.max(1, totalPages - 3);
@@ -29,33 +29,33 @@ export function renderPagination() {
 
 	} else {
 
-		addPage(state.currentPage);
+		addPage(state.lists[state.mode].firstVisibleIndex / state.itemsPerPage);
 
-		if (state.currentPage + 1 <= totalPages) {
-			addPage(state.currentPage + 1);
+		if (state.lists[state.mode].currentPage + 1 <= totalPages) {
+			addPage(state.lists[state.mode].currentPage + 1);
 		}
 
-		if (state.currentPage + 2 <= totalPages) {
-			addPage(state.currentPage + 2);
+		if (state.lists[state.mode].currentPage + 2 <= totalPages) {
+			addPage(state.lists[state.mode].currentPage + 2);
 		}
 
-		if (state.currentPage + 3 < totalPages) {
+		if (state.lists[state.mode].currentPage + 3 < totalPages) {
 			addDots();
 		}
 
-		if (state.currentPage < totalPages) {
+		if (state.lists[state.mode].currentPage < totalPages) {
 			addPage(totalPages);
 		}
 	}
 
-	addButton(">", state.currentPage + 1, state.currentPage === totalPages);
+	addButton(">", state.lists[state.mode].currentPage + 1, state.lists[state.mode].currentPage === totalPages);
 }
 
 function addPage(page) {
 	paginator.insertAdjacentHTML("beforeend", 
 		`
 		<button
-			class="${page === state.currentPage ? "active" : ""}"
+			class="${page === state.lists[state.mode].firstVisibleIndex / state.itemsPerPage ? "active" : ""}"
 			data-page="${page}">
 			${page}
 		</button>
@@ -130,15 +130,18 @@ export function initPagination() {
 
 	renderVideos();
 	updateActiveItem();
+	setFirstVisibleIndex((state.lists[state.mode].currentPage - 1) * state.itemsPerPage);
 });
 }
 
 export function renderCountDisplay() {
-	const start = (state.currentPage - 1) * state.itemsPerPage + 1;
-  const end = Math.min(
-    state.currentPage * state.itemsPerPage,
-    state.filteredVideos.length
-  );
+	// const start = (state.lists[state.mode].currentPage - 1) * state.itemsPerPage + 1;
+	const start = state.lists[state.mode].firstVisibleIndex + 1
+  // const end = Math.min(
+  //   state.lists[state.mode].currentPage * state.itemsPerPage,
+  //   state.filteredVideos.length
+  // );
+	const end = state.lists[state.mode].firstVisibleIndex + state.itemsPerPage;
 
 	countDisplay.innerHTML = 
 	`

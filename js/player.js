@@ -9,11 +9,11 @@ const list = document.querySelector(".history-list");
 export function initPlayer() {
 
   const currentItem = list.querySelector(
-    `[data-index="${state.globalIndex}"]`
+    `[data-index="${state.lists[state.mode].globalIndex}"]`
   );
 
   if (currentItem) {
-    openVideo(state.filteredVideos[state.globalIndex].link);
+    openVideo(state.filteredVideos[state.lists[state.mode].globalIndex].link);
     updateActiveItem();
   }
 
@@ -25,7 +25,7 @@ export function initPlayer() {
 
   setGlobalIndex(Number(item.dataset.index));
 
-  openVideo(state.filteredVideos[state.globalIndex].link);
+  openVideo(state.filteredVideos[state.lists[state.mode].globalIndex].link);
 
   updateActiveItem();
   });
@@ -69,7 +69,7 @@ export function updateActiveItem() {
     .forEach(el => el.classList.remove("active"));
 
   const active = list.querySelector(
-    `[data-index="${state.globalIndex}"]`
+    `[data-index="${state.lists[state.mode].globalIndex}"]`
   );
 
   active?.classList.add("active");

@@ -14,7 +14,7 @@ if (!raw) {
 } else {
     const data = JSON.parse(raw);
 
-		setCurrentPage(state.currentPage);
+		setCurrentPage(state.lists[state.mode].currentPage);
 		setItemsPerPage(state.itemsPerPage);
 
 		state.likedVideos = data["Likes and Favorites"]["Like List"]["ItemFavoriteList"].map(item => ({
@@ -26,7 +26,7 @@ if (!raw) {
 			date: item.Date
 		}));
 
-    state.videos = data["Likes and Favorites"]["Like List"]["ItemFavoriteList"];
+		state.videos = state.mode == "liked" ? state.likedVideos : state.savedVideos;
     state.filteredVideos = [...state.videos];
 
     refresh();
@@ -52,7 +52,7 @@ export function initUpload() {
 		setGlobalIndex(0);
 		currentText.textContent = `${state.itemsPerPage} per page`;
 
-		state.videos = data["Likes and Favorites"]["Like List"]["ItemFavoriteList"]
+		state.videos = state.mode == "liked" ? state.likedVideos : state.savedVideos;
 		state.filteredVideos = [...state.videos];
 
 		refresh();

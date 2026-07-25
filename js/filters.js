@@ -28,5 +28,5 @@ export function applyFilters() {
     state.filteredVideos.sort((a, b) => new Date(a.date) - new Date(b.date));
   }
 
-  setCurrentPage(1)
+  setCurrentPage(state.lists[state.mode].currentPage)
 }

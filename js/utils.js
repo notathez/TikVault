@@ -17,9 +17,9 @@ export function getPlayerLink(link) {
 }
 
 export function refresh() {
-  setCurrentPage(state.currentPage)
+  setCurrentPage(state.lists[state.mode].currentPage)
   setItemsPerPage(state.itemsPerPage)
-  applyFilters();
+  // applyFilters();
   renderVideos();
   renderCountDisplay()
 }

@@ -23,7 +23,7 @@ export function renderVideos() {
 			`
 		)
 	} else {
-		const start = (state.currentPage - 1) * state.itemsPerPage;
+		const start = (state.lists[state.mode].currentPage - 1) * state.itemsPerPage;
 		const end = start + state.itemsPerPage;
 
 		const page = state.filteredVideos.slice(start, end);
@@ -65,7 +65,7 @@ export function renderVideos() {
 
 export function scrollToSelectedVideo() {
   const item = list.querySelector(
-    `[data-index="${state.globalIndex}"]`
+    `[data-index="${state.lists[state.mode].globalIndex}"]`
   );
 
 	if (!item) return;
