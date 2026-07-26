@@ -1,6 +1,6 @@
 import { setItemsPerPage, setFirstVisibleIndex, state } from "./state.js";
 import { renderVideos, scrollToSelectedVideo } from "./ui.js";
-import { renderCountDisplay } from "./pagination.js";
+import { getCurrentPage, renderCountDisplay } from "./pagination.js";
 import { updateActiveItem } from "./player.js";
 
 const pageSize = document.querySelector(".page-size");
@@ -17,11 +17,12 @@ menu.addEventListener("click", (e) => {
   
   let tempCount = state.itemsPerPage;
   // const firstVisibleIndex = (state.lists[state.mode].currentPage - 1) * tempCount;
-  setFirstVisibleIndex((state.lists[state.mode].currentPage - 1) * tempCount);
+  // console.log(`firstvisibleindex: ${(getCurrentPage() - 1) * tempCount}`)
+  setFirstVisibleIndex((getCurrentPage() - 1) * tempCount);
 
   setItemsPerPage(Number(item.dataset.value))
 
-  state.lists[state.mode].currentPage = Math.floor(state.lists[state.mode].firstVisibleIndex / state.itemsPerPage) + 1;
+  // state.lists[state.mode].currentPage = Math.floor(state.lists[state.mode].firstVisibleIndex / state.itemsPerPage) + 1;
 
   currentText.textContent = `${state.itemsPerPage} per page`;
 

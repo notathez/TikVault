@@ -1,5 +1,5 @@
 import { state } from './state.js';
-import { renderPagination, renderCountDisplay } from './pagination.js';
+import { renderPagination, renderCountDisplay, getCurrentPage } from './pagination.js';
 import { getPlayerLink } from './utils.js';
 
 const list = document.querySelector(".history-list");
@@ -23,7 +23,7 @@ export function renderVideos() {
 			`
 		)
 	} else {
-		const start = (state.lists[state.mode].currentPage - 1) * state.itemsPerPage;
+		const start = (getCurrentPage() - 1) * state.itemsPerPage;
 		const end = start + state.itemsPerPage;
 
 		const page = state.filteredVideos.slice(start, end);

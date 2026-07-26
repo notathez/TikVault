@@ -7,7 +7,7 @@ export const state = {
 	
 	lists: {
 		liked: {
-			currentPage: Number(localStorage.getItem("likedCurrentPage")) || 1,
+			// currentPage: Number(localStorage.getItem("likedCurrentPage")) || 1,
 			// globalIndex: Number(localStorage.getItem("likedGlobalIndex")) || 0,
 			firstVisibleIndex: Number(localStorage.getItem("likedFirstVisibleIndex")) || 0,
 			sortType: localStorage.getItem("likedSortType") || "newest",
@@ -15,7 +15,7 @@ export const state = {
 			dateTo: localStorage.getItem("likedDateTo") || null,
 			},
 		saved: {
-			currentPage: Number(localStorage.getItem("savedCurrentPage")) || 1,
+			// currentPage: Number(localStorage.getItem("savedCurrentPage")) || 1,
 			// globalIndex: Number(localStorage.getItem("savedGlobalIndex")) || 0,
 			firstVisibleIndex: Number(localStorage.getItem("savedFirstVisibleIndex")) || 0,
 			sortType: localStorage.getItem("savedSortType") || "newest",
@@ -45,36 +45,43 @@ export const state = {
 // 	mode: localStorage.getItem("mode") || "liked"
 // };
 
-export function setGlobalIndex(index) {
-	state.lists[state.mode].globalIndex = index;
-	localStorage.setItem(state.mode == "liked" ? "likedGlobalIndex" : "savedGlobalIndex", index)
-}
+// export function setGlobalIndex(index) {
+// 	state.lists[state.mode].globalIndex = index;
+// 	localStorage.setItem(state.mode == "liked" ? "likedGlobalIndex" : "savedGlobalIndex", index)
+// }
 // export function setGlobalIndex(index) {
 // 	state.globalIndex = index;
 // 	localStorage.setItem("globalIndex", index)
 // }
 
 
-export function setCurrentPage(page) {
-	state.lists[state.mode].currentPage = page;
-	localStorage.setItem(state.mode == "liked" ? "likedCurrentPage" : "savedCurrentPage", page);
-}
+// export function setCurrentPage(page) {
+// 	state.lists[state.mode].currentPage = page;
+// 	localStorage.setItem(state.mode == "liked" ? "likedCurrentPage" : "savedCurrentPage", page);
+// }
 // export function setCurrentPage(page) {
 // 	state.currentPage = page;
 // 	localStorage.setItem("currentPage", page);
 // }
 
 export function setItemsPerPage(size) {
-	const firstVisibleIndex =
-    (state.lists[state.mode].currentPage - 1) * state.itemsPerPage;
+	// const firstVisibleIndex =
+  //   (state.lists[state.mode].currentPage - 1) * state.itemsPerPage;
 
-  state.itemsPerPage = size;
+  // state.itemsPerPage = size;
 
-  state.lists[state.mode].currentPage =
-    Math.floor(firstVisibleIndex / size) + 1;
+  // state.lists[state.mode].currentPage =
+  //   Math.floor(firstVisibleIndex / size) + 1;
 
-  localStorage.setItem("itemsPerPage", size);
-  localStorage.setItem(state.mode == "liked" ? "likedCurrentPage" : "savedCurrentPage", state.lists[state.mode].currentPage);
+  // localStorage.setItem("itemsPerPage", size);
+	state.itemsPerPage = size;
+
+	state.lists.liked.firstVisibleIndex = 0;
+	state.lists.saved.firstVisibleIndex = 0;
+
+	localStorage.setItem("itemsPerPage", size);
+	localStorage.setItem("likedFirstVisibleIndex", 0);
+	localStorage.setItem("savedFirstVisibleIndex", 0);
 }
 // export function setItemsPerPage(size) {
 // 	const firstVisibleIndex =
@@ -105,6 +112,10 @@ export function setMode(mode) {
 }
 
 export function setFirstVisibleIndex(index) {
-	state.lists[state.mode].firstVisibleIndex = index;
+	currentList().firstVisibleIndex = index;
 	localStorage.setItem(state.mode == "liked" ? "likedFirstVisibleIndex" : "savedFirstVisibleIndex", index);
+}
+
+export function currentList() {
+	return state.lists[state.mode];
 }

@@ -1,5 +1,5 @@
 import { updateActiveItem } from './player.js';
-import { state, setCurrentPage, setFirstVisibleIndex } from './state.js';
+import { state, setFirstVisibleIndex, currentList } from './state.js';
 import { renderVideos } from './ui.js';
 
 const paginator = document.querySelector(".paginator");
@@ -8,17 +8,22 @@ const countDisplay = document.querySelector(".count-display");
 export function renderPagination() {
 	paginator.innerHTML = "";
 
-	const totalPages = Math.ceil(state.filteredVideos.length / state.itemsPerPage);
+	const currentPage =
+		Math.floor(state.lists[state.mode].firstVisibleIndex / state.itemsPerPage) + 1;
 
-	addButton("<<", 1, state.lists[state.mode].currentPage === 1);
-	addButton("<", state.lists[state.mode].currentPage - 1, state.lists[state.mode].currentPage === 1);
+	const totalPages = Math.ceil(
+		state.filteredVideos.length / state.itemsPerPage
+	);
+
+	addButton("<<", 1, currentPage === 1);
+	addButton("<", currentPage - 1, currentPage === 1);
 
 	if (totalPages <= 5) {
 		for (let i = 1; i <= totalPages; i++) {
 			addPage(i);
 		}
 
-	} else if (totalPages - state.lists[state.mode].currentPage <= 3) {
+	} else if (totalPages - currentPage <= 3) {
 		addDots();
 
 		const start = Math.max(1, totalPages - 3);
@@ -29,33 +34,33 @@ export function renderPagination() {
 
 	} else {
 
-		addPage(state.lists[state.mode].firstVisibleIndex / state.itemsPerPage);
+		addPage(currentPage);
 
-		if (state.lists[state.mode].currentPage + 1 <= totalPages) {
-			addPage(state.lists[state.mode].currentPage + 1);
+		if (currentPage + 1 <= totalPages) {
+			addPage(currentPage + 1);
 		}
 
-		if (state.lists[state.mode].currentPage + 2 <= totalPages) {
-			addPage(state.lists[state.mode].currentPage + 2);
+		if (currentPage + 2 <= totalPages) {
+			addPage(currentPage + 2);
 		}
 
-		if (state.lists[state.mode].currentPage + 3 < totalPages) {
+		if (currentPage + 3 < totalPages) {
 			addDots();
 		}
 
-		if (state.lists[state.mode].currentPage < totalPages) {
+		if (currentPage < totalPages) {
 			addPage(totalPages);
 		}
 	}
 
-	addButton(">", state.lists[state.mode].currentPage + 1, state.lists[state.mode].currentPage === totalPages);
+	addButton(">", currentPage + 1, currentPage === totalPages);
 }
 
 function addPage(page) {
 	paginator.insertAdjacentHTML("beforeend", 
 		`
 		<button
-			class="${page === state.lists[state.mode].firstVisibleIndex / state.itemsPerPage ? "active" : ""}"
+			class="${page === getCurrentPage() ? "active" : ""}"
 			data-page="${page}">
 			${page}
 		</button>
@@ -108,7 +113,7 @@ export function initPagination() {
 		const page = Number(input.value);
 
 		if (page >= 1 && page <= totalPages) {
-			setCurrentPage(page);
+			// setCurrentPage(page);
 			renderVideos();
 			updateActiveItem();
 		}
@@ -126,22 +131,25 @@ export function initPagination() {
 
 	if (!btn || btn.disabled) return;
 
-	setCurrentPage(Number(btn.dataset.page));
+	// setCurrentPage(Number(btn.dataset.page));
+	const page = Number(btn.dataset.page);
+	setFirstVisibleIndex((page - 1) * state.itemsPerPage);
 
 	renderVideos();
 	updateActiveItem();
-	setFirstVisibleIndex((state.lists[state.mode].currentPage - 1) * state.itemsPerPage);
 });
 }
 
 export function renderCountDisplay() {
-	// const start = (state.lists[state.mode].currentPage - 1) * state.itemsPerPage + 1;
-	const start = state.lists[state.mode].firstVisibleIndex + 1
+	// const start = (currentPage - 1) * state.itemsPerPage + 1;
+	const currentPage =
+  Math.floor(currentList().firstVisibleIndex / state.itemsPerPage) + 1;
+	const start = (currentPage - 1) * state.itemsPerPage + 1;
   // const end = Math.min(
-  //   state.lists[state.mode].currentPage * state.itemsPerPage,
+  //   currentPage * state.itemsPerPage,
   //   state.filteredVideos.length
   // );
-	const end = state.lists[state.mode].firstVisibleIndex + state.itemsPerPage;
+	const end = Math.min(currentPage * state.itemsPerPage, state.filteredVideos.length);
 
 	countDisplay.innerHTML = 
 	`
@@ -150,4 +158,10 @@ export function renderCountDisplay() {
 		Showing <strong>${start}-${end}</strong> of <strong>${state.filteredVideos.length}</strong>
 	</span>
 	`
+}
+
+export function getCurrentPage() {
+  return Math.floor(
+    state.lists[state.mode].firstVisibleIndex / state.itemsPerPage
+  ) + 1;
 }

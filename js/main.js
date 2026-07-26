@@ -1,5 +1,5 @@
 import { loadVideos } from "./utils.js";
-import { setCurrentPage, setItemsPerPage, setTheme, state } from "./state.js";
+import { setItemsPerPage, setTheme, state } from "./state.js";
 import { initTheme } from "./theme.js";
 
 const uploadField = document.querySelector("#upload-field");
@@ -29,7 +29,7 @@ fileInput.addEventListener("change", async (e) => {
 	const data = await loadVideos(file);
 
 	localStorage.setItem("tiktok-data", JSON.stringify(data));
-	setCurrentPage(1);
+	// setCurrentPage(1);
 	setItemsPerPage(10);
 	window.location.href = "vault.html";
 })

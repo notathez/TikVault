@@ -1,4 +1,4 @@
-import {setGlobalIndex, state} from './state.js'
+import { state } from './state.js'
 import { getPlayerLink } from "./utils.js";
 
 const player = document.querySelector(".player");
@@ -23,7 +23,7 @@ export function initPlayer() {
 
   if (!item) return;
 
-  setGlobalIndex(Number(item.dataset.index));
+  // setGlobalIndex(Number(item.dataset.index));
 
   openVideo(state.filteredVideos[state.lists[state.mode].globalIndex].link);
 

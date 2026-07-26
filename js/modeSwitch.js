@@ -10,7 +10,6 @@ switcher.addEventListener("click", (e) => {
 	const btn = e.target.closest("[data-mode]");
 	if(!btn) return;
 
-
 	setMode(btn.dataset.mode);
 	// setFirstVisibleIndex((state.lists[state.mode].currentPage - 1) * state.itemsPerPage);
 	state.videos = state.mode == "liked" ? state.likedVideos : state.savedVideos;

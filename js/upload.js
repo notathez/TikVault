@@ -1,5 +1,5 @@
 import {loadVideos, refresh} from './utils.js'
-import { setCurrentPage, setGlobalIndex, setItemsPerPage, state } from './state.js';
+import { setItemsPerPage, state } from './state.js';
 
 const uploadBtn = document.querySelector("#uploadBtn");
 const fileInput = document.querySelector("#fileInput");
@@ -14,8 +14,8 @@ if (!raw) {
 } else {
     const data = JSON.parse(raw);
 
-		setCurrentPage(state.lists[state.mode].currentPage);
-		setItemsPerPage(state.itemsPerPage);
+		// setCurrentPage(state.lists[state.mode].currentPage);
+		// setItemsPerPage(state.itemsPerPage);
 
 		state.likedVideos = data["Likes and Favorites"]["Like List"]["ItemFavoriteList"].map(item => ({
 			link: item.link,
