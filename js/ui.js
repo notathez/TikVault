@@ -1,4 +1,4 @@
-import { state } from './state.js';
+import { state, currentList } from './state.js';
 import { renderPagination, renderCountDisplay, getCurrentPage } from './pagination.js';
 import { getPlayerLink } from './utils.js';
 
@@ -41,7 +41,7 @@ export function renderVideos() {
 
 		list.insertAdjacentHTML("beforeend",
 			`
-			<li class="history-list__item" data-index=${globalIndex}>
+			<li class="history-list__item" data-index=${globalIndex} data-link=${item.link}>
 				<div class="tiktok-logo_wrapper">						
 					<img src="assets/tiktok-logo.png" alt="tiktok logo">
 				</div>
@@ -60,18 +60,19 @@ export function renderVideos() {
 		list.scrollTo({
 			top: 0,
 		});
+		
 	}
 }
 
 export function scrollToSelectedVideo() {
   const item = list.querySelector(
-    `[data-index="${state.lists[state.mode].globalIndex}"]`
+    `[data-link="${currentList().activeVideo}"]`
   );
 
 	if (!item) return;
 
-	list.scrollTo({
-		top: item.offsetTop,
-		behavior: "smooth"
-	});
+  item.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
 }

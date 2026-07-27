@@ -1,5 +1,6 @@
 import {loadVideos, refresh} from './utils.js'
 import { setItemsPerPage, state } from './state.js';
+import { scrollToSelectedVideo } from './ui.js';
 
 const uploadBtn = document.querySelector("#uploadBtn");
 const fileInput = document.querySelector("#fileInput");
@@ -13,9 +14,6 @@ if (!raw) {
     window.location.href = "index.html";
 } else {
     const data = JSON.parse(raw);
-
-		// setCurrentPage(state.lists[state.mode].currentPage);
-		// setItemsPerPage(state.itemsPerPage);
 
 		state.likedVideos = data["Likes and Favorites"]["Like List"]["ItemFavoriteList"].map(item => ({
 			link: item.link,
@@ -57,5 +55,5 @@ export function initUpload() {
 
 		refresh();
 	});
-
+	scrollToSelectedVideo();
 }

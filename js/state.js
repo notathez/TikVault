@@ -7,73 +7,27 @@ export const state = {
 	
 	lists: {
 		liked: {
-			// currentPage: Number(localStorage.getItem("likedCurrentPage")) || 1,
-			// globalIndex: Number(localStorage.getItem("likedGlobalIndex")) || 0,
 			firstVisibleIndex: Number(localStorage.getItem("likedFirstVisibleIndex")) || 0,
+			activeVideo: localStorage.getItem("likedActiveVideo") || null,
 			sortType: localStorage.getItem("likedSortType") || "newest",
 			dateFrom: localStorage.getItem("likedDateFrom") || null,
 			dateTo: localStorage.getItem("likedDateTo") || null,
 			},
 		saved: {
-			// currentPage: Number(localStorage.getItem("savedCurrentPage")) || 1,
-			// globalIndex: Number(localStorage.getItem("savedGlobalIndex")) || 0,
 			firstVisibleIndex: Number(localStorage.getItem("savedFirstVisibleIndex")) || 0,
+			activeVideo: localStorage.getItem("savedActiveVideo") || null,
 			sortType: localStorage.getItem("savedSortType") || "newest",
 			dateFrom: localStorage.getItem("savedDateFrom") || null,
 			dateTo: localStorage.getItem("savedDateTo") || null,
 		}
 	},
 
-	// currentPage: Number(localStorage.getItem("currentPage")) || 1,
-	// globalIndex: Number(localStorage.getItem("globalIndex")) || 0,
-	// sortType: 'newest',
 	itemsPerPage: Number(localStorage.getItem("itemsPerPage")) || 10,
-	// selectedVideoLink: localStorage.getItem("selectedVideoIndex") | 
 	theme: localStorage.getItem("theme") || "light",
 	mode: localStorage.getItem("mode") || "liked"
 };
-// export const state = {
-// 	likedVideos: [],
-// 	savedVideos: [],
-// 	videos: [],
-// 	filteredVideos: [],
-// 	currentPage: Number(localStorage.getItem("currentPage")) || 1,
-// 	itemsPerPage: Number(localStorage.getItem("itemsPerPage")) || 10,
-// 	globalIndex: Number(localStorage.getItem("globalIndex")) || 0,
-// 	sortType: 'newest',
-// 	theme: localStorage.getItem("theme") || "light",
-// 	mode: localStorage.getItem("mode") || "liked"
-// };
-
-// export function setGlobalIndex(index) {
-// 	state.lists[state.mode].globalIndex = index;
-// 	localStorage.setItem(state.mode == "liked" ? "likedGlobalIndex" : "savedGlobalIndex", index)
-// }
-// export function setGlobalIndex(index) {
-// 	state.globalIndex = index;
-// 	localStorage.setItem("globalIndex", index)
-// }
-
-
-// export function setCurrentPage(page) {
-// 	state.lists[state.mode].currentPage = page;
-// 	localStorage.setItem(state.mode == "liked" ? "likedCurrentPage" : "savedCurrentPage", page);
-// }
-// export function setCurrentPage(page) {
-// 	state.currentPage = page;
-// 	localStorage.setItem("currentPage", page);
-// }
 
 export function setItemsPerPage(size) {
-	// const firstVisibleIndex =
-  //   (state.lists[state.mode].currentPage - 1) * state.itemsPerPage;
-
-  // state.itemsPerPage = size;
-
-  // state.lists[state.mode].currentPage =
-  //   Math.floor(firstVisibleIndex / size) + 1;
-
-  // localStorage.setItem("itemsPerPage", size);
 	state.itemsPerPage = size;
 
 	state.lists.liked.firstVisibleIndex = 0;
@@ -83,18 +37,6 @@ export function setItemsPerPage(size) {
 	localStorage.setItem("likedFirstVisibleIndex", 0);
 	localStorage.setItem("savedFirstVisibleIndex", 0);
 }
-// export function setItemsPerPage(size) {
-// 	const firstVisibleIndex =
-//     (state.currentPage - 1) * state.itemsPerPage;
-
-//   state.itemsPerPage = size;
-
-//   state.currentPage =
-//     Math.floor(firstVisibleIndex / size) + 1;
-
-//   localStorage.setItem("itemsPerPage", size);
-//   localStorage.setItem("currentPage", state.currentPage);
-// }
 
 export function setTheme(theme) {
 	state.theme = theme;
@@ -114,6 +56,11 @@ export function setMode(mode) {
 export function setFirstVisibleIndex(index) {
 	currentList().firstVisibleIndex = index;
 	localStorage.setItem(state.mode == "liked" ? "likedFirstVisibleIndex" : "savedFirstVisibleIndex", index);
+}
+
+export function setActiveVideo(link) {
+	currentList().activeVideo = link;
+	localStorage.setItem(state.mode == "liked" ? "likedActiveVideo" : "savedActiveVideo", link);
 }
 
 export function currentList() {

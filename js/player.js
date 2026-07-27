@@ -1,4 +1,4 @@
-import { state } from './state.js'
+import { currentList, setActiveVideo, state } from './state.js'
 import { getPlayerLink } from "./utils.js";
 
 const player = document.querySelector(".player");
@@ -9,13 +9,8 @@ const list = document.querySelector(".history-list");
 export function initPlayer() {
 
   const currentItem = list.querySelector(
-    `[data-index="${state.lists[state.mode].globalIndex}"]`
+    `[data-link="${currentList().activeVideo}"]`
   );
-
-  if (currentItem) {
-    openVideo(state.filteredVideos[state.lists[state.mode].globalIndex].link);
-    updateActiveItem();
-  }
 
   list.addEventListener("click", (e) => {
 
@@ -23,12 +18,12 @@ export function initPlayer() {
 
   if (!item) return;
 
-  // setGlobalIndex(Number(item.dataset.index));
-
-  openVideo(state.filteredVideos[state.lists[state.mode].globalIndex].link);
+  setActiveVideo(item.dataset.link);
+  openVideo(currentList().activeVideo = item.dataset.link);
 
   updateActiveItem();
   });
+  
 }
 
 export function openVideo(link) {
@@ -69,7 +64,7 @@ export function updateActiveItem() {
     .forEach(el => el.classList.remove("active"));
 
   const active = list.querySelector(
-    `[data-index="${state.lists[state.mode].globalIndex}"]`
+    `[data-link="${currentList().activeVideo}"]`
   );
 
   active?.classList.add("active");

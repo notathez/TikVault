@@ -1,7 +1,9 @@
-import { setItemsPerPage, state } from "./state.js";
+import { setItemsPerPage, state, currentList } from "./state.js";
 // import { applyFilters } from "./filters.js";
 import { renderVideos } from "./ui.js";
 import { renderCountDisplay } from './pagination.js';
+import { updateActiveItem } from "./player.js";
+import { openVideo } from "./player.js";
 
 export async function loadVideos(file) {
 	const text = await file.text();
@@ -17,9 +19,8 @@ export function getPlayerLink(link) {
 }
 
 export function refresh() {
-  // setCurrentPage(state.lists[state.mode].currentPage)
-  // setItemsPerPage(state.itemsPerPage)
   // applyFilters();
   renderVideos();
-  renderCountDisplay()
+  renderCountDisplay();
+  updateActiveItem();
 }

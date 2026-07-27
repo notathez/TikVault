@@ -1,5 +1,6 @@
 import { renderPagination } from "./pagination.js";
-import { setMode, setFirstVisibleIndex, state } from "./state.js";
+import { openVideo } from "./player.js";
+import { setMode, setFirstVisibleIndex, state, currentList } from "./state.js";
 import { renderVideos } from "./ui.js";
 import { refresh } from "./utils.js";
 
@@ -11,16 +12,19 @@ switcher.addEventListener("click", (e) => {
 	if(!btn) return;
 
 	setMode(btn.dataset.mode);
-	// setFirstVisibleIndex((state.lists[state.mode].currentPage - 1) * state.itemsPerPage);
 	state.videos = state.mode == "liked" ? state.likedVideos : state.savedVideos;
 	state.filteredVideos = [...state.videos];
 	renderVideos();
-	// renderPagination();
 	
 	switchButtons.forEach(switchBtn => {
 		switchBtn.classList.remove("active");
 	})
 	btn.classList.add("active");
+	if (currentList().activeVideo == null) {
+		return;
+	} else {
+		openVideo(currentList().activeVideo);
+	}
 	refresh();
 })
 
