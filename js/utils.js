@@ -1,5 +1,5 @@
 import { setItemsPerPage, state, currentList } from "./state.js";
-// import { applyFilters } from "./filters.js";
+import { applyFilters } from "./filters.js";
 import { renderVideos } from "./ui.js";
 import { renderCountDisplay } from './pagination.js';
 import { updateActiveItem } from "./player.js";
@@ -19,7 +19,7 @@ export function getPlayerLink(link) {
 }
 
 export function refresh() {
-  // applyFilters();
+  applyFilters();
   renderVideos();
   renderCountDisplay();
   updateActiveItem();

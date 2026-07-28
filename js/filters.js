@@ -1,4 +1,4 @@
-import { setCurrentPage, state } from "./state.js";
+import { currentList, state } from "./state.js";
 import { dateFrom, dateTo } from "./dateFilter.js";
 
 export function applyFilters() {
@@ -22,11 +22,10 @@ export function applyFilters() {
     );
   }
 
-  if (state.sortType === "newest") {
+  if (currentList().sortType === "newest") {
     state.filteredVideos.sort((a, b) => new Date(b.date) - new Date(a.date));
   } else {
     state.filteredVideos.sort((a, b) => new Date(a.date) - new Date(b.date));
   }
 
-  setCurrentPage(state.lists[state.mode].currentPage)
 }

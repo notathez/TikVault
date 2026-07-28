@@ -63,6 +63,11 @@ export function setActiveVideo(link) {
 	localStorage.setItem(state.mode == "liked" ? "likedActiveVideo" : "savedActiveVideo", link);
 }
 
+export function setSortType(type) {
+	currentList().sortType = type;
+	localStorage.setItem(state.mode == "liked" ? "likedSortType" : "savedSortType", type)
+}
+
 export function currentList() {
 	return state.lists[state.mode];
 }

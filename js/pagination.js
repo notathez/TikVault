@@ -113,7 +113,6 @@ export function initPagination() {
 		const page = Number(input.value);
 
 		if (page >= 1 && page <= totalPages) {
-			// setCurrentPage(page);
 			renderVideos();
 			updateActiveItem();
 		}
@@ -131,7 +130,6 @@ export function initPagination() {
 
 	if (!btn || btn.disabled) return;
 
-	// setCurrentPage(Number(btn.dataset.page));
 	const page = Number(btn.dataset.page);
 	setFirstVisibleIndex((page - 1) * state.itemsPerPage);
 
@@ -141,14 +139,9 @@ export function initPagination() {
 }
 
 export function renderCountDisplay() {
-	// const start = (currentPage - 1) * state.itemsPerPage + 1;
 	const currentPage =
   Math.floor(currentList().firstVisibleIndex / state.itemsPerPage) + 1;
 	const start = (currentPage - 1) * state.itemsPerPage + 1;
-  // const end = Math.min(
-  //   currentPage * state.itemsPerPage,
-  //   state.filteredVideos.length
-  // );
 	const end = Math.min(currentPage * state.itemsPerPage, state.filteredVideos.length);
 
 	countDisplay.innerHTML = 

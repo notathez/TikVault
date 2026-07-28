@@ -1,6 +1,8 @@
+import { applyFilters } from "./filters.js";
 import { renderPagination } from "./pagination.js";
 import { openVideo } from "./player.js";
-import { setMode, setFirstVisibleIndex, state, currentList } from "./state.js";
+import { initSort, updateSortUI } from "./sort.js";
+import { setMode, setFirstVisibleIndex, state, currentList, setSortType } from "./state.js";
 import { renderVideos } from "./ui.js";
 import { refresh } from "./utils.js";
 
@@ -12,10 +14,10 @@ switcher.addEventListener("click", (e) => {
 	if(!btn) return;
 
 	setMode(btn.dataset.mode);
+	updateSortUI();
 	state.videos = state.mode == "liked" ? state.likedVideos : state.savedVideos;
 	state.filteredVideos = [...state.videos];
 	renderVideos();
-	
 	switchButtons.forEach(switchBtn => {
 		switchBtn.classList.remove("active");
 	})

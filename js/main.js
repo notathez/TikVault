@@ -29,7 +29,6 @@ fileInput.addEventListener("change", async (e) => {
 	const data = await loadVideos(file);
 
 	localStorage.setItem("tiktok-data", JSON.stringify(data));
-	// setCurrentPage(1);
 	setItemsPerPage(10);
 	window.location.href = "vault.html";
 })
