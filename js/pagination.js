@@ -113,6 +113,7 @@ export function initPagination() {
 		const page = Number(input.value);
 
 		if (page >= 1 && page <= totalPages) {
+			setFirstVisibleIndex((page - 1) * state.itemsPerPage);
 			renderVideos();
 			updateActiveItem();
 		}
