@@ -1,3 +1,4 @@
+import { setVideoPlaceholder } from "./modeSwitch.js";
 import { openVideo } from "./player.js";
 
 const searchInput = document.querySelector("#search-input");
@@ -7,7 +8,7 @@ const errorInfo = document.querySelector(".error-info");
 const list = document.querySelector(".history-list");
 
 const videoUrlRegex =
-    /^https?:\/\/(?:www\.)?(?:tiktok\.com\/@[\w.-]+\/video\/\d+|tiktokv\.com\/share\/video\/\d+\/?)$/;
+  /^https?:\/\/(?:www\.)?(?:tiktok\.com\/@[\w.-]+\/(?:video|photo)\/\d+|tiktokv\.com\/share\/video\/\d+\/?)$/;
 
 const shortUrlRegex =
     /^https?:\/\/(?:vm|vt)\.tiktok\.com\/[\w]+\/?$/;
@@ -44,6 +45,7 @@ clearBtn.addEventListener("click", () => {
   errorInfo.style.display = "none";
   list.style.height = "calc(100svh - 420px)";
   clearBtn.style.display = "none";
+  setVideoPlaceholder();
 })
 
 searchInput.addEventListener("input", (e) => {

@@ -14,12 +14,14 @@ const switchButtons = switcher.querySelectorAll("[data-mode]");
 
 const DEFAULT_PLAYER =
   "https://www.tiktok.com/player/v1/7513591048724221207";
+	
+let tempVideoLink;
 
 switcher.addEventListener("click", (e) => {
 	const btn = e.target.closest("[data-mode]");
 	if(!btn) return;
 
-	const tempVideoLink = currentList().activeVideo || DEFAULT_PLAYER;
+	tempVideoLink = currentList().activeVideo || DEFAULT_PLAYER;
 	setMode(btn.dataset.mode);
 	updateSortUI();
 	state.videos = state.mode == "liked" ? state.likedVideos : state.savedVideos;
@@ -29,17 +31,20 @@ switcher.addEventListener("click", (e) => {
 		switchBtn.classList.remove("active");
 	})
 	btn.classList.add("active");
+	setVideoPlaceholder();
 
-	if (currentList().activeVideo) {
+	refresh();
+})
+
+export function setVideoPlaceholder() {
+		if (currentList().activeVideo) {
 		openVideo(currentList().activeVideo);
 	} else {
-		// openVideo(tempVideoLink);
 		player.src = tempVideoLink;
 		videoLink.href = "#";
 		videoLink.textContent = "No video selected";
 	}
-	refresh();
-})
+}
 
 export function initSwitch() {
 	setMode(state.mode);
