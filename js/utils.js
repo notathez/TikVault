@@ -1,4 +1,4 @@
-import { setItemsPerPage, state, currentList } from "./state.js";
+import { setItemsPerPage, state, currentList, setFirstVisibleIndex, setActiveVideo } from "./state.js";
 import { applyFilters } from "./filters.js";
 import { renderVideos } from "./ui.js";
 import { renderCountDisplay } from './pagination.js';
@@ -11,7 +11,7 @@ export async function loadVideos(file) {
 }
 
 export function getPlayerLink(link) {
-  const id = link.match(/video\/(\d+)/)?.[1];
+  const id = link.match(/(\d{10,})/)?.[1];
 
   if (!id) return null;
 

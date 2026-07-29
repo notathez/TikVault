@@ -27,8 +27,11 @@ export function initPlayer() {
 }
 
 export function openVideo(link) {
-  player.src = getPlayerLink(link);
+  const playerLink = getPlayerLink(link);
 
+  if (!playerLink) return;
+
+  player.src = playerLink;
   videoLink.href = link;
   videoLink.textContent = link;
 }

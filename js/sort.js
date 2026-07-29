@@ -1,4 +1,4 @@
-import { currentList, setSortType, state } from "./state.js";
+import { currentList, setSortType, state, setFirstVisibleIndex, setActiveVideo } from "./state.js";
 import { renderVideos } from "./ui.js";
 import { refresh } from "./utils.js";
 
@@ -30,7 +30,10 @@ sortMenu.addEventListener("click", (e) => {
   setSortType(item.dataset.value);
   sortText.innerText = currentList().sortType == "newest" ? "Newest" : "Oldest";
 
-  refresh();
 
+  refresh();
+  setFirstVisibleIndex(0);
+  setActiveVideo(null);
+  
   sort.classList.remove("open");
 });
