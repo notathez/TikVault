@@ -15,7 +15,7 @@ const switchButtons = switcher.querySelectorAll("[data-mode]");
 const DEFAULT_PLAYER =
   "https://www.tiktok.com/player/v1/7513591048724221207";
 	
-let tempVideoLink;
+let tempVideoLink = currentList().activeVideo || DEFAULT_PLAYER;
 
 switcher.addEventListener("click", (e) => {
 	const btn = e.target.closest("[data-mode]");

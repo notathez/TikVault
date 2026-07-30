@@ -8,9 +8,14 @@ const list = document.querySelector(".history-list");
 
 export function initPlayer() {
 
-  const currentItem = list.querySelector(
-    `[data-link="${currentList().activeVideo}"]`
-  );
+  if (currentList().activeVideo) {
+    openVideo(currentList().activeVideo);
+  } else {
+    player.src = "https://www.tiktok.com/player/v1/7513591048724221207";
+		videoLink.href = "#";
+		videoLink.textContent = "No video selected";
+  }
+
 
   list.addEventListener("click", (e) => {
 
