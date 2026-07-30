@@ -4,8 +4,8 @@ import { dateFrom, dateTo } from "./dateFilter.js";
 export function applyFilters() {
   state.filteredVideos = [...state.videos];
 
-  const from = dateFrom.selectedDates[0];
-  const to = dateTo.selectedDates[0];
+  const from = currentList().dateFrom ? new Date(currentList().dateFrom) : null;
+  const to = currentList().dateTo ? new Date(currentList().dateTo) : null;
 
   if (from) {
     state.filteredVideos = state.filteredVideos.filter(

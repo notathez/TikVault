@@ -1,3 +1,4 @@
+import { updateDateUI } from "./dateFilter.js";
 import { applyFilters } from "./filters.js";
 import { renderPagination } from "./pagination.js";
 import { openVideo } from "./player.js";
@@ -24,9 +25,8 @@ switcher.addEventListener("click", (e) => {
 	tempVideoLink = currentList().activeVideo || DEFAULT_PLAYER;
 	setMode(btn.dataset.mode);
 	updateSortUI();
+	updateDateUI();
 	state.videos = state.mode == "liked" ? state.likedVideos : state.savedVideos;
-	// state.filteredVideos = [...state.videos];
-	// renderVideos();
 	switchButtons.forEach(switchBtn => {
 		switchBtn.classList.remove("active");
 	})

@@ -68,6 +68,18 @@ export function setSortType(type) {
 	localStorage.setItem(state.mode == "liked" ? "likedSortType" : "savedSortType", type)
 }
 
+export function setDateFrom(date) {
+	currentList().dateFrom = date;
+
+	localStorage.setItem(state.mode == "liked" ? "likedDateFrom" : "savedDateFrom", date ?? "")
+}
+
+export function setDateTo(date) {
+	currentList().dateTo = date;
+
+	localStorage.setItem(state.mode == "liked" ? "likedDateTo" : "savedDateTo", date ?? "")
+}
+
 export function currentList() {
 	return state.lists[state.mode];
 }

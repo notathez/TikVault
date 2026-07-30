@@ -4,6 +4,7 @@ import { initPagination } from './pagination.js';
 import { initTheme } from "./theme.js"
 import { initSwitch } from './modeSwitch.js';
 import { initSort } from './sort.js';
+import { initDateFilter } from './dateFilter.js';
 
 import "./pageSize.js";
 import "./uiIvents.js";
@@ -15,3 +16,4 @@ initPagination();
 initTheme();
 initSort();
 initSwitch();
+initDateFilter();
