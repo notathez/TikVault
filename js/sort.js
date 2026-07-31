@@ -1,3 +1,4 @@
+import { updateActiveItem } from "./player.js";
 import { currentList, setSortType, state, setFirstVisibleIndex, setActiveVideo } from "./state.js";
 import { renderVideos } from "./ui.js";
 import { refresh } from "./utils.js";
@@ -34,6 +35,7 @@ sortMenu.addEventListener("click", (e) => {
   refresh();
   setFirstVisibleIndex(0);
   setActiveVideo(null);
-  
+  updateActiveItem();
+
   sort.classList.remove("open");
 });

@@ -24,6 +24,7 @@ menu.addEventListener("click", (e) => {
 
   renderCountDisplay();
   renderVideos();
+  updateActiveItem();
 
   pageSize.classList.remove("open");
 });

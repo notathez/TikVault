@@ -14,9 +14,30 @@
 			<span class="logo-wrapper">
 				<img src="assets/tiktok-logo.png" alt="logo">
 			</span>
-			<h1>Tik<span>Vault</span></h1>
+			<div class="logo-info">
+				<h1>
+					Tik<span>Vault</span>
+					<sup>v1.1</sup>
+				</h1>
+				<ul class="logo-badge">
+					<li class="logo-badge__item">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock-keyhole-icon lucide-lock-keyhole"><circle cx="12" cy="16" r="1"/><rect x="3" y="10" width="18" height="12" rx="2"/><path d="M7 10V7a5 5 0 0 1 10 0v3"/></svg>
+						Private
+					</li>
+					<span class="circle">●</span>
+					<li class="logo-badge__item">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-monitor-icon lucide-monitor"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>	
+						Local
+					</li>
+					<span class="circle">●</span>
+					<li class="logo-badge__item">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-round-icon lucide-user-round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>
+						No login
+					</li>
+				</ul>
+			</div>
 		</a>
-		<nav class="header-nav">
+		<nav class="header-right">
 			<ul class="nav-list">
 				<li class="nav-list__item"><a href="#features">Features</a></li>
 				<li class="nav-list__item"><a href="#user-guide">How it works</a></li>
@@ -28,8 +49,7 @@
 					</a>
 				</li>
 			</ul>
-		</nav>
-		<button id="uploadBtn" class="load-data--btn">
+			<button id="uploadBtn" class="load-data--btn">
 			<span>
 				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cloud-upload-icon lucide-cloud-upload"><path d="M12 13v8"/><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="m8 17 4-4 4 4"/></svg>
 			</span>
@@ -37,6 +57,7 @@
 		</button>
 		<button id="themeSwitcher">change theme</button>
 		<input type="file" id="file-input" accept=".json" hidden>
+		</nav>
 	</header>
 
 	<main class="main">
@@ -65,7 +86,7 @@
 			</div>
 			<div class="hero-right">
 				<div class="hero-img">
-					<img src="assets/hero.png" alt="vault preview">
+					<img src="" alt="vault preview">
 				</div>
 			</div>
 		</section>

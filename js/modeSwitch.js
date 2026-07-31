@@ -21,7 +21,7 @@ let tempVideoLink = currentList().activeVideo || DEFAULT_PLAYER;
 switcher.addEventListener("click", (e) => {
 	const btn = e.target.closest("[data-mode]");
 	if(!btn) return;
-
+	
 	tempVideoLink = currentList().activeVideo || DEFAULT_PLAYER;
 	setMode(btn.dataset.mode);
 	updateSortUI();

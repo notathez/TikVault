@@ -11,6 +11,9 @@
   --accent-light: #fceff3;
 	--item-active: #ffd9e4;
   --border-c: #eff0f4;
+	--icon-bg: #fce0e9;
+	--privacy-bg: #fef7fa;
+	--privacy-br: #fce0e9;
 
 	/* border-radius */
 	--brs-sm: 6px;
@@ -33,6 +36,9 @@ html.dark {
   --accent-light: rgba(177, 50, 88, 0.479);
 	--item-active: #501626;
   --border-c: #31374a;
+	--icon-bg: #2A2C38;
+	--privacy-bg: #1C1D27;
+	--privacy-br: #31374a;
 }
 
 * {
@@ -78,7 +84,6 @@ aside {
 	margin-bottom: 15px;
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
 }
 
 .main-logo {
@@ -150,7 +155,12 @@ aside {
 	border-radius: var(--brs-lg);
 }
 
+.header-nav {
+	margin-left: auto;
+}
+
 .nav-list {
+	margin-right: 150px;
 	display: flex;
 	align-items: center;
 	list-style: none;
@@ -225,6 +235,7 @@ aside {
 }
 
 .header-right {
+	margin-left: auto;
 	display: flex;
 	align-items: center;
 	gap: 15px;
@@ -891,8 +902,6 @@ aside {
 	display: none;
 	flex-direction: column;
 	gap: 12px;
-	/* align-items: center; */
-	/* justify-content: space-between; */
 }
 
 .pagination-area strong {
@@ -1028,15 +1037,24 @@ aside {
 	flex-direction: column;
 	align-items: center;
 	gap: 20px;
-	border: 1px solid #fce0e9;
+	border: 1px solid var(--privacy-br);
 	border-radius: var(--brs-md);
-	background-color: #fef7fa;
+	background-color: var(--privacy-bg);
 	cursor: pointer;
+	transition: 0.2s background-color ease;
 }
 
 .upload-field.dragover {
 	border-color: var(--accent-color);
 	background-color: var(--accent-light);
+}
+
+.upload-field:hover {
+	background-color: var(--accent-light);
+}
+
+.upload-header {
+	color: var(--text-color);
 }
 
 .upload-header span {
@@ -1054,7 +1072,7 @@ aside {
 
 .upload-icon img{
 	width: 100%;
-	background-color: #fce0e9;
+	background-color: var(--icon-bg);
 	border-radius: var(--brs-xl);
 }
 
@@ -1106,12 +1124,22 @@ aside {
 
 .hero-img {
 	width: 100%;
-	border: var(--border);
 	border-radius: var(--brs-md);
+}
+
+.hero-img {
+  border: none;
+  box-shadow: 0 18px 40px rgba(15,23,42,.10);
+}
+
+.dark .hero-img {
+  border: 1px solid rgba(255,255,255,.05);
+  box-shadow: 0 20px 50px rgba(0,0,0,.35);
 }
 
 .hero-img img {
 	width: 100%;
+	border-radius: var(--brs-md);
 }
 
 /* BENEFITS */
@@ -1122,7 +1150,7 @@ aside {
 	padding-bottom: 50px;
 	display: flex;
 	justify-content: space-around;
-	border-bottom: 1.5px solid #e2e2e2;
+	border-bottom: 1px solid #e2e2e2;
 }
 
 .benefits-list__item {
@@ -1144,6 +1172,7 @@ aside {
 
 .item-info h4 {
 	font-size: 16px;
+	color: var(--text-color);
 }
 
 .item-info span {
@@ -1159,6 +1188,11 @@ aside {
 	flex-direction: column;
 	align-items: center;
 	gap: 40px;
+}
+
+.features h2 {
+	font-size: 24px;
+	color: var(--text-color);
 }
 
 .features-list {
@@ -1185,7 +1219,7 @@ aside {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: #fce0e9;
+	background-color: var(--icon-bg);
 	border-radius: var(--brs-xl);
 }
 
@@ -1197,6 +1231,7 @@ aside {
 .features-list__item--header {
 	font-size: 18px;
 	margin-bottom: 15px;
+	color: var(--text-color);
 }
 
 .features-list__item--description {
@@ -1212,6 +1247,11 @@ aside {
 	flex-direction: column;
 	align-items: center;
 	gap: 40px;
+}
+
+.user-guide h2 {
+	font-size: 24px;
+	color: var(--text-color);
 }
 
 .user-guide-list {
@@ -1268,7 +1308,7 @@ aside {
   top: 20px;
   right: 100%;
   width: 20px;
-  border-top: 2px solid #f7f7f7;
+  border-top: 2px solid var(--bg-color);
   z-index: 1;
 }
 
@@ -1278,7 +1318,7 @@ aside {
   top: 20px;
   left: 100%;
   width: 20px;
-  border-top: 2px solid #f7f7f7;
+  border-top: 2px solid var(--bg-color);
   z-index: 1;
 }
 
@@ -1287,7 +1327,7 @@ aside {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: #fce0e9;
+	background-color: var(--icon-bg);
 	border-radius: var(--brs-xl);
 	margin-bottom: 15px;
 }
@@ -1297,6 +1337,10 @@ aside {
 	width: 30px;
 	stroke: var(--accent-color);
 	stroke-width: 2.5;
+}
+
+.item-header {
+	color: var(--text-color);
 }
 
 .item-description {
@@ -1317,8 +1361,8 @@ aside {
 	display: flex;
 	justify-content: center;
 	gap: 30px;
-	background-color: #fef7fa;
-	border: 1px solid #fce0e9;
+	background-color: var(--privacy-bg);
+	border: 1px solid var(--privacy-br);
 	border-radius: var(--brs-md);
 }
 

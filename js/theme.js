@@ -1,3 +1,4 @@
+import { updateHeroImg } from "./hero.js";
 import { state, setTheme } from "./state.js"
 
 const switchTheme = document.querySelector("#themeSwitcher")

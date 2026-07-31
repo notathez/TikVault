@@ -1,3 +1,5 @@
+import { updateHeroImg } from "./hero.js";
+
 export const state = {
 	likedVideos: [],
 	savedVideos: [],
@@ -46,6 +48,8 @@ export function setTheme(theme) {
 		"dark",
 		theme == "dark"
 	)
+
+	updateHeroImg();
 }
 
 export function setMode(mode) {
