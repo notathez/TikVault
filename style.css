@@ -68,6 +68,7 @@ body {
 
 main {
 	display: flex;
+	align-items: center;
 	gap: 15px;
 }
 
@@ -1010,6 +1011,11 @@ aside {
 	gap: 40px;
 }
 
+/* .hero-left,
+.hero-right{
+  flex:1;
+} */
+
 .hero-left {
 	display: flex;
 	flex-direction: column;
@@ -1046,10 +1052,6 @@ aside {
 
 .upload-field.dragover {
 	border-color: var(--accent-color);
-	background-color: var(--accent-light);
-}
-
-.upload-field:hover {
 	background-color: var(--accent-light);
 }
 
@@ -1455,3 +1457,318 @@ aside {
 	color: var(--accent-color) !important;
 }
 
+
+/*  */
+/* RESPONSIVE LAYOUT */
+/*  */
+
+@media (max-width: 1200px) {
+
+	/* HEADER */
+
+  .nav-list {
+    margin-right: 40px;
+    gap: 24px;
+  }
+
+  .nav-list__item a {
+    font-size: 15px;
+  }
+
+  .main-logo h1 {
+    font-size: 24px;
+  }
+
+  .logo-badge__item {
+    font-size: 13px;
+  }
+
+	/* HERO */
+
+	.hero{
+    gap:32px;
+	}
+
+	.hero-left h1{
+		font-size:36px;
+	}
+
+	.hero-left>span{
+		font-size:17px;
+	}
+
+	.upload-field{
+		padding:24px 10%;
+	}
+
+	/* BENEFITS */
+
+	.benefits-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    padding-bottom: 40px;
+  }
+
+	.benefits-list__item{
+			gap:16px;
+	}
+
+	.item-info h4{
+			font-size:15px;
+	}
+
+	.item-info span{
+			font-size:13px;
+	}
+
+	/* FEATURES */
+
+	.features-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+	.features-list__item{
+    padding:18px;
+	}
+
+	.features-list__item--icon{
+			padding:16px;
+			margin-bottom:20px;
+	}
+
+	.features-list__item--header{
+			font-size:17px;
+	}
+
+	.features-list__item--description{
+			font-size:15px;
+	}
+
+	/* USER GUIDE */
+
+	.user-guide-list {
+    gap: 20px;
+  }
+
+  .item-icon {
+    padding: 16px;
+  }
+
+  .item-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .item-header {
+    text-align: center;
+  }
+
+  .item-description {
+    text-align: center;
+  }
+
+}
+
+@media (max-width: 980px) {
+
+	/* HEADER */
+
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+  }
+
+  .header-right {
+    margin-left: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+  }
+
+  .nav-list {
+    margin-right: 0;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .load-data--btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  #themeSwitcher {
+    width: 100%;
+  }
+
+	/* HERO */
+
+	.hero{
+    flex-direction: column-reverse;
+    align-items: center;
+	}
+
+	.hero-left,
+	.hero-right{
+		width: 100%;
+	}
+
+	.hero-left{
+		align-items:center;
+		text-align:center;
+	}
+
+	.hero-left h1{
+    font-size: 34px;
+	}
+
+	.upload-field{
+    width: 100%;
+    padding: 24px;
+	}
+
+	.hero-right {
+		display: flex;
+		justify-content: center;
+	}
+
+	.hero-img{
+    max-width: 700px;
+	}
+
+	/* USER GUIDE */
+
+	.user-guide-list{
+    flex-direction:column;
+		gap:40px;
+}
+
+	.user-guide-list__item{
+		max-width:500px;
+		width:100%;
+		margin:0 auto;
+	}
+
+	.user-guide-list__item::before,
+	.user-guide-list__item::after,
+	.item-step::before,
+	.item-step::after{
+		display:none;
+	}
+
+	.user-guide-list__item:not(:last-child)::after{
+    display:block;
+
+    content:"";
+    position:absolute;
+
+    top:40px;
+    left:20px;
+
+    width:2px;
+    height:calc(100% + 40px);
+
+    background:var(--accent-color);
+	}
+
+	.user-guide-list__item{
+    align-items:flex-start;
+    padding-left:60px;
+	}
+
+	.item-step{
+		position:absolute;
+		left:0;
+	}
+
+	.item-icon{
+		margin-bottom:12px;
+	}
+
+	.item-description{
+		text-align:left;
+	}
+
+	/* PRIVACY */
+
+	.privacy {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+    padding: 24px 20px;
+  }
+
+  .privacy svg {
+    width: 38px;
+    height: 38px;
+  }
+
+  .privacy-info {
+    align-items: center;
+  }
+
+	/* FOOTER */
+
+	.footer {
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .footer-logo {
+    justify-content: center;
+  }
+
+  .footer > span {
+    max-width: 320px;
+  }
+
+  .github-link {
+    justify-content: center;
+  }
+
+}
+
+@media (max-width: 700px) {
+
+	/* HERO */
+
+	.hero-left h1{
+    font-size:30px;
+	}
+
+	.hero-left>span{
+			font-size:16px;
+	}
+
+	.upload-button{
+			width:100%;
+	}
+
+	.upload-button{
+			font-size:16px;
+	}
+
+	.upload-icon{
+			width:64px;
+			height:64px;
+	}
+
+	/* BENEFITS */
+
+	.benefits-list {
+    grid-template-columns: 1fr;
+  }
+
+	/* FEATURES */
+
+  .features-list {
+    grid-template-columns: 1fr;
+  }
+}
