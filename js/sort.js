@@ -29,11 +29,12 @@ sortMenu.addEventListener("click", (e) => {
   if (!item) return;
 
   setSortType(item.dataset.value);
+  
   sortText.innerText = currentList().sortType == "newest" ? "Newest" : "Oldest";
 
+  setFirstVisibleIndex(0);
 
   refresh();
-  setFirstVisibleIndex(0);
   setActiveVideo(null);
   updateActiveItem();
 
