@@ -2,7 +2,7 @@ import { updateDateUI } from "./dateFilter.js";
 import { applyFilters } from "./filters.js";
 import { renderPagination } from "./pagination.js";
 import { openVideo } from "./player.js";
-import { initSort, updateSortUI } from "./sort.js";
+import { updateSortUI } from "./sort.js";
 import { setMode, state, currentList, setSortType } from "./state.js";
 import { renderVideos } from "./ui.js";
 import { refresh } from "./utils.js";
